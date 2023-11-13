@@ -1,0 +1,21 @@
+{
+    "name" : {
+        "en" : "",
+        "fr" : ""
+    },
+    "unique_id" : "",
+    "type" : {
+        "en" : "",
+        "fr" : ""
+    },
+    "short_description" : {
+        "en" : "",
+        "fr" : ""
+    },
+    "long_description" : {
+        "en" : "",
+        "fr" : ""
+    },
+    "attributes" : [],
+    "data" : {}
+}

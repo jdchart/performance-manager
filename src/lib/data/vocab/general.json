@@ -1,0 +1,119 @@
+{
+    "top_nav" : {
+        "site_title" : {
+            "en" : "Performance Manager",
+            "fr" : "Gestion de Performances"
+        },
+        "site_description" : {
+            "en" : "An interface for easily managing various performance files.",
+            "fr" : "Une interface pour la manipuation de fichiers de performance."
+        },
+        "nav_create_project" : {
+            "en" : "New Project",
+            "fr" : "Nouveau Projet"
+        },
+        "nav_create_project_desc" : {
+            "en" : "Create a new project",
+            "fr" : "Créer un nouveau projet"
+        },
+        "nav_edit_project" : {
+            "en" : "Workspace",
+            "fr" : "Espace de travail"
+        },
+        "nav_edit_project_desc" : {
+            "en" : "Edit an existing project",
+            "fr" : "Modifier un projet existant"
+        }
+    },
+    "file_explorer" : {
+        "select_a_file_message" : {
+            "en" : "Select a file",
+            "fr" : "Choisissez un fichier"
+        },
+        "extension" : {
+            "en" : "File format",
+            "fr" : "Format du fichier"
+        },
+        "last_modified" : {
+            "en" : "Last modified",
+            "fr" : "Dernière modification"
+        },
+        "name" : {
+            "en" : "File name",
+            "fr" : "Nom du fichier"
+        },
+        "path" : {
+            "en" : "Relative path",
+            "fr" : "Chemin relatif"
+        },
+        "size" : {
+            "en" : "File size",
+            "fr" : "Taille du fichier"
+        },
+        "type" : {
+            "en" : "File type",
+            "fr" : "Type du fichier"
+        }
+    },
+    "footer" : {
+        "en" : "Jacob Hart",
+        "fr" : "Jacob Hart"
+    },
+    "general_ui" : {
+        "select_folder" : {
+            "en" : "Select Root Folder",
+            "fr" : "Choisir le Dossier Racine"
+        }
+    },
+    "create_project" : {
+        "create_button" : {
+            "en" : "Create",
+            "fr" : "Créer"
+        },
+        "page_title" : {
+            "en" : "New Project",
+            "fr" : "Nouveau Projet"
+        },
+        "field_project_name" : {
+            "label" : {
+                "en" : "Project name",
+                "fr" : "Nom du projet"
+            },
+            "default" : {
+                "en" : "Untitled project",
+                "fr" : "Projet sans titre"
+            }
+        },
+        "field_ontology" : {
+            "label" : {
+                "en" : "Ontology",
+                "fr" : "Ontologie"
+            },
+            "default" : "eulalie.json"
+        },
+        "field_root_folder" : {
+            "label" : {
+                "en" : "Root folder",
+                "fr" : "Dossier racine"
+            },
+            "default" : {
+                "en" : "(choose a folder)",
+                "fr" : "(choisr un dossier)"
+            }
+        },
+        "field_num_files" : {
+            "label" : {
+                "en" : "Files",
+                "fr" : "Fichiers"
+            },
+            "default" : 0
+        },
+        "field_total_files_size" : {
+            "label" : {
+                "en" : "Size",
+                "fr" : "Taille"
+            },
+            "default" : 0
+        }
+    }
+}

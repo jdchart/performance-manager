@@ -1,0 +1,1824 @@
+{
+    "metadata" : {
+        "name" : {
+            "en" : "Eulalie",
+            "fr" : "Eulalie"
+        },
+        "authors" : [
+            {"name" : "Bernard Jacquemin"},
+            {"name" : "Clarisse Bardiot"},
+            {"name" : "Alexandre Michaan"},
+            {"name" : "Jeanne Westeel"},
+            {"name" : "Oudom Southammavong"},
+            {"name" : "Daniel Koskowitz"}
+        ],
+        "links" : [
+            {
+                "name" : {
+                    "en" : "Article",
+                    "fr" : "Article"
+                },
+                "url" : "https://journals.openedition.org/revuehn/3535"
+            }
+        ]
+    },
+    "class_types" : [
+        {
+            "name" : {
+                "en" : "Work",
+                "fr" : "Oeuvre"
+            },
+            "unique_id" : "class_type_work",
+            "color" : []
+        },
+        {
+            "name" : {
+                "en" : "Expression",
+                "fr" : "Expression"
+            },
+            "unique_id" : "class_type_expression",
+            "color" : []
+        },
+        {
+            "name" : {
+                "en" : "Manifestation",
+                "fr" : "Manifestation"
+            },
+            "unique_id" : "class_type_manifestation",
+            "color" : []
+        },
+        {
+            "name" : {
+                "en" : "Person",
+                "fr" : "Personne"
+            },
+            "unique_id" : "class_type_person",
+            "color" : []
+        }
+    ],
+    "classes" : [
+        {
+            "name" : {
+                "en" : "Composition",
+                "fr" : "Composition"
+            },
+            "unique_id" : "class_composition",
+            "type" : "class_type_work",
+            "short_description" : {
+                "en" : "Main class for a composition.",
+                "fr" : "Classe principale pour une composition."
+            },
+            "long_description" : {
+                "en" : "Main class for a composition.",
+                "fr" : "Classe principale pour une composition."
+            },
+            "attributes" : [
+                {
+                    "name" : {
+                        "en" : "Title",
+                        "fr" : "Titre"
+                    },
+                    "type" : "string",
+                    "short_description" : {
+                        "en" : "The title of the composition.",
+                        "fr" : "Le titre de la composition."
+                    },
+                    "long_description" : {
+                        "en" : "The title of the composition.",
+                        "fr" : "Le titre de la composition."
+                    }
+                },
+                {
+                    "name" : {
+                        "en" : "Date",
+                        "fr" : "Date"
+                    },
+                    "type" : "date",
+                    "short_description" : {
+                        "en" : "The date of the composition.",
+                        "fr" : "La date de la composition."
+                    },
+                    "long_description" : {
+                        "en" : "The date of the composition.",
+                        "fr" : "La date de la composition."
+                    }
+                },
+                {
+                    "name" : {
+                        "en" : "Alias",
+                        "fr" : "Alias"
+                    },
+                    "short_description" : {
+                        "en" : "A list of alises (other titles) for the composition.",
+                        "fr" : "Le titre de la composition"
+                    },
+                    "long_description" : {
+                        "en" : "A list of alises (other titles) for the composition.",
+                        "fr" : "Une liste d'alias (autres titres) pour la composition."
+                    },
+                    "type" : "list_string"
+                }
+            ],
+            "data" : {
+                "heurist_id" : 98
+            }
+        },
+        {
+            "name" : {
+                "en" : "Creative process",
+                "fr" : "Processus de création"
+            },
+            "unique_id" : "class_creative_process",
+            "type" : "class_type_manifestation",
+            "short_description" : {
+                "en" : "A general creative process.",
+                "fr" : "Un processus de création générale."
+            },
+            "long_description" : {
+                "en" : "A general creative process.",
+                "fr" : "Un processus de création générale."
+            },
+            "attributes" : [
+                {
+                    "name" : {
+                        "en" : "Title",
+                        "fr" : "Titre"
+                    },
+                    "type" : "string",
+                    "short_description" : {
+                        "en" : "The name of the creative process.",
+                        "fr" : "Le nom du processus créatif."
+                    },
+                    "long_description" : {
+                        "en" : "The name of the creative process.",
+                        "fr" : "Le nom du processus créatif."
+                    }
+                },
+                {
+                    "name" : {
+                        "en" : "Type",
+                        "fr" : "Type"
+                    },
+                    "type" : "string",
+                    "short_description" : {
+                        "en" : "The type of creative process.",
+                        "fr" : "Le type de processus créatif."
+                    },
+                    "long_description" : {
+                        "en" : "The type of creative process.",
+                        "fr" : "Le type de processus créatif."
+                    }
+                },
+                {
+                    "name" : {
+                        "en" : "Date",
+                        "fr" : "Date"
+                    },
+                    "type" : "date",
+                    "short_description" : {
+                        "en" : "The date the creative process occured.",
+                        "fr" : "La date à laquelle s'est déroulée le processus créatif."
+                    },
+                    "long_description" : {
+                        "en" : "The date the creative process occured.",
+                        "fr" : "La date à laquelle s'est déroulée le processus créatif."
+                    }
+                }
+            ],
+            "data" : {
+                "heurist_id" : 111
+            }
+        },
+        {
+            "name" : {
+                "en" : "Composer",
+                "fr" : "Compositeur"
+            },
+            "unique_id" : "class_composer",
+            "type" : "class_type_person",
+            "short_description" : {
+                "en" : "A person who does composition.",
+                "fr" : "Une personne qui fait de la composition."
+            },
+            "long_description" : {
+                "en" : "A person who does composition.",
+                "fr" : "Une personne qui fait de la composition."
+            },
+            "attributes" : [
+                {
+                    "name" : {
+                        "en" : "Last name",
+                        "fr" : "Nom"
+                    },
+                    "type" : "string",
+                    "short_description" : {
+                        "en" : "The composer's last name.",
+                        "fr" : "Le nom de famille du compositeur."
+                    },
+                    "long_description" : {
+                        "en" : "The composer's last name.",
+                        "fr" : "Le nom de famille du compositeur."
+                    }
+                },
+                {
+                    "name" : {
+                        "en" : "First name",
+                        "fr" : "Prénom"
+                    },
+                    "type" : "string",
+                    "short_description" : {
+                        "en" : "The composer's first name.",
+                        "fr" : "Le prénom du compositeur."
+                    },
+                    "long_description" : {
+                        "en" : "The composer's first name.",
+                        "fr" : "Le prénom du compositeur."
+                    }
+                },
+                {
+                    "name" : {
+                        "en" : "ID",
+                        "fr" : "Identifiant"
+                    },
+                    "type" : "string",
+                    "short_description" : {
+                        "en" : "An ID associated with the composer.",
+                        "fr" : "Un identifiant associé au compositeur."
+                    },
+                    "long_description" : {
+                        "en" : "An ID associated with the composer.",
+                        "fr" : "Un identifiant associé au compositeur."
+                    }
+                }
+            ],
+            "data" : {
+                "heurist_id" : 95
+            }
+        },
+        {
+            "name" : {
+                "en" : "Sacem",
+                "fr" : "Sacem"
+            },
+            "unique_id" : "class_sacem",
+            "type" : "class_type_manifestation",
+            "short_description" : {
+                "en" : "A legal declaration to the Sacem.",
+                "fr" : "Une déclaration légale au Sacem."
+            },
+            "long_description" : {
+                "en" : "A legal declaration to the Sacem.",
+                "fr" : "Une déclaration légale au Sacem."
+            },
+            "attributes" : [
+                {
+                    "name" : {
+                        "en" : "Declaration title",
+                        "fr" : "Titre déclaration"
+                    },
+                    "type" : "string",
+                    "short_description" : {
+                        "en" : "The title of the declaration.",
+                        "fr" : "Le titre de la déclaration."
+                    },
+                    "long_description" : {
+                        "en" : "The title of the declaration.",
+                        "fr" : "Le titre de la déclaration."
+                    }
+                },
+                {
+                    "name" : {
+                        "en" : "Title",
+                        "fr" : "Titre"
+                    },
+                    "type" : "string",
+                    "short_description" : {
+                        "en" : "The title given to the declaration.",
+                        "fr" : "Le titre donnée à la déclaration."
+                    },
+                    "long_description" : {
+                        "en" : "The title given to the declaration.",
+                        "fr" : "Le titre donnée à la déclaration."
+                    }
+                },
+                {
+                    "name" : {
+                        "en" : "Date",
+                        "fr" : "Date"
+                    },
+                    "type" : "date",
+                    "short_description" : {
+                        "en" : "The date of the declaration.",
+                        "fr" : "La date de la déclaration."
+                    },
+                    "long_description" : {
+                        "en" : "The date of the declaration.",
+                        "fr" : "La date de la déclaration."
+                    }
+                },
+                {
+                    "name" : {
+                        "en" : "ID",
+                        "fr" : "Identifiant"
+                    },
+                    "type" : "string",
+                    "short_description" : {
+                        "en" : "The ID associated with the declaration.",
+                        "fr" : "Un identifiant associé à la déclaration."
+                    },
+                    "long_description" : {
+                        "en" : "The ID associated with the declaration.",
+                        "fr" : "Un identifiant associé à la déclaration."
+                    }
+                }
+            ],
+            "data" : {
+                "heurist_id" : 107
+            }
+        },
+        {
+            "name" : {
+                "en" : "Grouping",
+                "fr" : "Regroupement"
+            },
+            "unique_id" : "class_grouping",
+            "type" : "class_type_expression",
+            "short_description" : {
+                "en" : "A grouping of divers elements.",
+                "fr" : "Un regroupement d'éléments divers."
+            },
+            "long_description" : {
+                "en" : "A grouping of divers elements.",
+                "fr" : "Un regroupement d'éléments divers."
+            },
+            "attributes" : [
+                {
+                    "name" : {
+                        "en" : "Name",
+                        "fr" : "Nom"
+                    },
+                    "type" : "string",
+                    "short_description" : {
+                        "en" : "The name given to the grouping.",
+                        "fr" : "Le nom donné au regroupement."
+                    },
+                    "long_description" : {
+                        "en" : "The name given to the grouping.",
+                        "fr" : "Le nom donné au regroupement."
+                    }
+                },
+                {
+                    "name" : {
+                        "en" : "List",
+                        "fr" : "Liste"
+                    },
+                    "type" : "list_string",
+                    "short_description" : {
+                        "en" : "A list of elements in the grouping.",
+                        "fr" : "Une liste d'éléments dans le regroupement."
+                    },
+                    "long_description" : {
+                        "en" : "A list of elements in the grouping.",
+                        "fr" : "Une liste d'éléments dans le regroupement."
+                    }
+                }
+            ],
+            "data" : {
+                "heurist_id" : 100
+            }
+        },
+        {
+            "name" : {
+                "en" : "Version",
+                "fr" : "Version"
+            },
+            "unique_id" : "class_version",
+            "type" : "class_type_expression",
+            "short_description" : {
+                "en" : "A version of different types of elements.",
+                "fr" : "Une version de differents types d'éléments."
+            },
+            "long_description" : {
+                "en" : "A version of different types of elements.",
+                "fr" : "Une version de differents types d'éléments."
+            },
+            "attributes" : [
+                {
+                    "name" : {
+                        "en" : "Title",
+                        "fr" : "Titre"
+                    },
+                    "type" : "string",
+                    "short_description" : {
+                        "en" : "A title given to the version.",
+                        "fr" : "Un titre donné à la version."
+                    },
+                    "long_description" : {
+                        "en" : "A title given to the version.",
+                        "fr" : "Un titre donné à la version."
+                    }              
+                },
+                {
+                    "name" : {
+                        "en" : "Creation date",
+                        "fr" : "Date création"
+                    },
+                    "type" : "date",
+                    "short_description" : {
+                        "en" : "The date of the creation of the version.",
+                        "fr" : "La date de création de la version."
+                    },
+                    "long_description" : {
+                        "en" : "The date of the creation of the version.",
+                        "fr" : "La date de création de la version."
+                    }
+                },
+                {
+                    "name" : {
+                        "en" : "Interpretation date",
+                        "fr" : "Date interprétation"
+                    },
+                    "type" : "date",
+                    "short_description" : {
+                        "en" : "The date of interpreation of the version.",
+                        "fr" : "La date d'interprétation de la version."
+                    },
+                    "long_description" : {
+                        "en" : "The date of interpreation of the version.",
+                        "fr" : "La date d'interprétation de la version."
+                    }
+                }
+            ],
+            "data" : {
+                "heurist_id" : 99
+            }
+        },
+        {
+            "name" : {
+                "en" : "Sample",
+                "fr" : "Sample"
+            },
+            "unique_id" : "class_sample",
+            "type" : "class_type_manifestation",
+            "short_description" : {
+                "en" : "A multimedia file used as a sample.",
+                "fr" : "Un fichier multimédia utilisé comme sample."
+            },
+            "long_description" : {
+                "en" : "A multimedia file used as a sample.",
+                "fr" : "Un fichier multimédia utilisé comme sample."
+            },
+            "attributes" : [
+                {
+                    "name" : {
+                        "en" : "Name",
+                        "fr" : "Nom"
+                    },
+                    "type" : "string",
+                    "short_description" : {
+                        "en" : "The name of the sample (typically a file name).",
+                        "fr" : "Le nom du sample (typiquement un nom de fichier)."
+                    },
+                    "long_description" : {
+                        "en" : "The name of the sample (typically a file name).",
+                        "fr" : "Le nom du sample (typiquement un nom de fichier)."
+                    }
+                },
+                {
+                    "name" : {
+                        "en" : "Size",
+                        "fr" : "Taille"
+                    },
+                    "type" : "number",
+                    "short_description" : {
+                        "en" : "The file size of the sample.",
+                        "fr" : "La taille du fichier du sample."
+                    },
+                    "long_description" : {
+                        "en" : "The file size of the sample.",
+                        "fr" : "La taille du fichier du sample."
+                    }
+                },
+                {
+                    "name" : {
+                        "en" : "Format",
+                        "fr" : "Format"
+                    },
+                    "type" : "string",
+                    "short_description" : {
+                        "en" : "The file format (typically the file extension).",
+                        "fr" : "Le format du fichier (typiquement l'extension du fichier)."
+                    },
+                    "long_description" : {
+                        "en" : "The file format (typically the file extension).",
+                        "fr" : "Le format du fichier (typiquement l'extension du fichier)."
+                    }
+                },
+                {
+                    "name" : {
+                        "en" : "ID",
+                        "fr" : "Identifiant"
+                    },
+                    "type" : "string",
+                    "short_description" : {
+                        "en" : "An ID associated with the sample",
+                        "fr" : "Un identifiant associé au sample."
+                    },
+                    "long_description" : {
+                        "en" : "An ID associated with the sample",
+                        "fr" : "Un identifiant associé au sample."
+                    }
+                }
+            ],
+            "data" : {
+                "heurist_id" : 106
+            }
+        },
+        {
+            "name" : {
+                "en" : "Score",
+                "fr" : "Partition"
+            },
+            "unique_id" : "class_score",
+            "type" : "class_type_manifestation",
+            "short_description" : {
+                "en" : "A score for the performance.",
+                "fr" : "Une partition poour la performance."
+            },
+            "long_description" : {
+                "en" : "A score for the performance.",
+                "fr" : "Une partition poour la performance."
+            },
+            "attributes" : [
+                {
+                    "name" : {
+                        "en" : "Title",
+                        "fr" : "Titre"
+                    },
+                    "type" : "string",
+                    "short_description" : {
+                        "en" : "The score's title.",
+                        "fr" : "Le titre de la partition."
+                    },
+                    "long_description" : {
+                        "en" : "The score's title.",
+                        "fr" : "Le titre de la partition."
+                    }
+                },
+                {
+                    "name" : {
+                        "en" : "Part",
+                        "fr" : "Partie"
+                    },
+                    "type" : "string",
+                    "short_description" : {
+                        "en" : "The instrument(s) the score corresponds to.",
+                        "fr" : "Le(s) instrument(s) à laquelle corréspond la partition."
+                    },
+                    "long_description" : {
+                        "en" : "The instrument(s) the score corresponds to.",
+                        "fr" : "Le(s) instrument(s) à laquelle corréspond la partition."
+                    }
+                },
+                {
+                    "name" : {
+                        "en" : "ID",
+                        "fr" : "Identifiant"
+                    },
+                    "type" : "string",
+                    "short_description" : {
+                        "en" : "An ID associated with the score.",
+                        "fr" : "Un identifiant associé à la partition."
+                    },
+                    "long_description" : {
+                        "en" : "An ID associated with the score.",
+                        "fr" : "Un identifiant associé à la partition."
+                    }
+                }
+            ],
+            "data" : {
+                "heurist_id" : 108
+            }
+        },
+        {
+            "name" : {
+                "en" : "Role",
+                "fr" : "Rôle"
+            },
+            "unique_id" : "class_role",
+            "type" : "class_type_expression",
+            "short_description" : {
+                "en" : "The role a person can play in a piece.",
+                "fr" : "Le rôle que quelqu'un peut avoir pour une pièce."
+            },
+            "long_description" : {
+                "en" : "The role a person can play in a piece.",
+                "fr" : "Le rôle que quelqu'un peut avoir pour une pièce."
+            },
+            "attributes" : [
+                {
+                    "name" : {
+                        "en" : "Description",
+                        "fr" : "Description"
+                    },
+                    "type" : "string",
+                    "short_description" : {
+                        "en" : "A description of the role.",
+                        "fr" : "Une description du rôle."
+                    },
+                    "long_description" : {
+                        "en" : "A description of the role.",
+                        "fr" : "Une description du rôle."
+                    }
+                },
+                {
+                    "name" : {
+                        "en" : "Instructions",
+                        "fr" : "Instructions"
+                    },
+                    "type" : "string",
+                    "short_description" : {
+                        "en" : "Instructions for carrying out the role.",
+                        "fr" : "Des instructions pour exécuter le rôle."
+                    },
+                    "long_description" : {
+                        "en" : "Instructions for carrying out the role.",
+                        "fr" : "Des instructions pour exécuter le rôle."
+                    }
+                }
+            ],
+            "data" : {
+                "heurist_id" : 103
+            }
+        },
+        {
+            "name" : {
+                "en" : "Performer",
+                "fr" : "Interprète"
+            },
+            "unique_id" : "class_performer",
+            "type" : "class_type_person",
+            "short_description" : {
+                "en" : "A persone that is involved in the performance of the piece.",
+                "fr" : "Une personne qui joue un rôle dans l'interprétation d'une pièce."
+            },
+            "long_description" : {
+                "en" : "A persone that is involved in the performance of the piece.",
+                "fr" : "Une personne qui joue un rôle dans l'interprétation d'une pièce."
+            },
+            "attributes" : [
+                {
+                    "name" : {
+                        "en" : "Last name",
+                        "fr" : "Nom"
+                    },
+                    "type" : "string",
+                    "short_description" : {
+                        "en" : "The performer's last name.",
+                        "fr" : "Le nom de famille de l'interprète."
+                    },
+                    "long_description" : {
+                        "en" : "The performer's last name.",
+                        "fr" : "Le nom de famille de l'interprète."
+                    }
+                },
+                {
+                    "name" : {
+                        "en" : "First name",
+                        "fr" : "Prénom"
+                    },
+                    "type" : "string",
+                    "short_description" : {
+                        "en" : "The performer's first name.",
+                        "fr" : "Le prénom de l'interprète."
+                    },
+                    "long_description" : {
+                        "en" : "The performer's first name.",
+                        "fr" : "Le prénom de l'interprète."
+                    }
+                },
+                {
+                    "name" : {
+                        "en" : "ID",
+                        "fr" : "Identifiant"
+                    },
+                    "type" : "string",
+                    "short_description" : {
+                        "en" : "An ID associated with the performer.",
+                        "fr" : "Un identifiant associé à l'interprète."
+                    },
+                    "long_description" : {
+                        "en" : "An ID associated with the performer.",
+                        "fr" : "Un identifiant associé à l'interprète."
+                    }
+                }
+            ],
+            "data" : {
+                "heurist_id" : 10
+            }
+        },
+        {
+            "name" : {
+                "en" : "Press",
+                "fr" : "Presse"
+            },
+            "unique_id" : "class_press",
+            "type" : "class_type_manifestation",
+            "short_description" : {
+                "en" : "A press clipping about the piece.",
+                "fr" : "Un fragement de presse autour de la pièce."
+            },
+            "long_description" : {
+                "en" : "A press clipping about the piece.",
+                "fr" : "Un fragement de presse autour de la pièce."
+            },
+            "attributes" : [
+                {
+                    "name" : {
+                        "en" : "Source",
+                        "fr" : "Organisme"
+                    },
+                    "type" : "string",
+                    "short_description" : {
+                        "en" : "The name of the press outlet.",
+                        "fr" : "Le nom de l'organisme de presse."
+                    },
+                    "long_description" : {
+                        "en" : "The name of the press outlet.",
+                        "fr" : "Le nom de l'organisme de presse."
+                    }
+                },
+                {
+                    "name" : {
+                        "en" : "Title",
+                        "fr" : "Titre"
+                    },
+                    "type" : "string",
+                    "short_description" : {
+                        "en" : "The title of the press clipping.",
+                        "fr" : "Le titre du fragement de presse."
+                    },
+                    "long_description" : {
+                        "en" : "The title of the press clipping.",
+                        "fr" : "Le titre du fragement de presse."
+                    }
+                },
+                {
+                    "name" : {
+                        "en" : "Subject",
+                        "fr" : "Sujet"
+                    },
+                    "type" : "string",
+                    "short_description" : {
+                        "en" : "The subject of the press clipping.",
+                        "fr" : "Le sujet du fragement de presse."
+                    },
+                    "long_description" : {
+                        "en" : "The subject of the press clipping.",
+                        "fr" : "Le sujet du fragement de presse."
+                    }
+                },
+                {
+                    "name" : {
+                        "en" : "Date",
+                        "fr" : "Date"
+                    },
+                    "type" : "date",
+                    "short_description" : {
+                        "en" : "The date of the press clipping.",
+                        "fr" : "La date du fragement de presse."
+                    },
+                    "long_description" : {
+                        "en" : "The date of the press clipping.",
+                        "fr" : "La date du fragement de presse."
+                    }
+                },
+                {
+                    "name" : {
+                        "en" : "ID",
+                        "fr" : "Identifiant"
+                    },
+                    "type" : "string",
+                    "short_description" : {
+                        "en" : "An ID associated with the press clipping.",
+                        "fr" : "Un identifiant associé au fragement de presse."
+                    },
+                    "long_description" : {
+                        "en" : "An ID associated with the press clipping.",
+                        "fr" : "Un identifiant associé au fragement de presse."
+                    }
+                }
+            ],
+            "data" : {
+                "heurist_id" : 114
+            }
+        },
+        {
+            "name" : {
+                "en" : "Album",
+                "fr" : "Album"
+            },
+            "unique_id" : "class_album",
+            "type" : "class_type_manifestation",
+            "short_description" : {
+                "en" : "A collection of recordings released as an album.",
+                "fr" : "Une collection de captations publiés sous forme d'album."
+            },
+            "long_description" : {
+                "en" : "A collection of recordings released as an album.",
+                "fr" : "Une collection de captations publiés sous forme d'album."
+            },
+            "attributes" : [
+                {
+                    "name" : {
+                        "en" : "Title",
+                        "fr" : "Titre"
+                    },
+                    "type" : "string",
+                    "short_description" : {
+                        "en" : "The title of the album.",
+                        "fr" : "Le titre de l'album."
+                    },
+                    "long_description" : {
+                        "en" : "The title of the album.",
+                        "fr" : "Le titre de l'album."
+                    }
+                },
+                {
+                    "name" : {
+                        "en" : "Date",
+                        "fr" : "Date"
+                    },
+                    "type" : "date",
+                    "short_description" : {
+                        "en" : "The release date of the album.",
+                        "fr" : "La date de publication de l'album."
+                    },
+                    "long_description" : {
+                        "en" : "The release date of the album.",
+                        "fr" : "La date de publication de l'album."
+                    }
+                },
+                {
+                    "name" : {
+                        "en" : "Supporting media",
+                        "fr" : "Support"
+                    },
+                    "type" : "string",
+                    "short_description" : {
+                        "en" : "The physical supporting media for the album.",
+                        "fr" : "Le support physique de l'album."
+                    },
+                    "long_description" : {
+                        "en" : "The physical supporting media for the album.",
+                        "fr" : "Le support physique de l'album."
+                    }
+                },
+                {
+                    "name" : {
+                        "en" : "Type",
+                        "fr" : "Type"
+                    },
+                    "type" : "string",
+                    "short_description" : {
+                        "en" : "The type of album (compilation, EP etc.).",
+                        "fr" : "Le type de l'album (compilation, EP etc.)."
+                    },
+                    "long_description" : {
+                        "en" : "The type of album (compilation, EP etc.).",
+                        "fr" : "Le type de l'album (compilation, EP etc.)."
+                    }
+                },
+                {
+                    "name" : {
+                        "en" : "ID",
+                        "fr" : "Identifiant"
+                    },
+                    "type" : "string",
+                    "short_description" : {
+                        "en" : "An ID associated with the album.",
+                        "fr" : "Un identifiant associé à l'album."
+                    },
+                    "long_description" : {
+                        "en" : "An ID associated with the album.",
+                        "fr" : "Un identifiant associé à l'album."
+                    }
+                }
+            ],
+            "data" : {
+                "heurist_id" : 105
+            }
+        },
+        {
+            "name" : {
+                "en" : "Show",
+                "fr" : "Spectacle"
+            },
+            "unique_id" : "class_show",
+            "type" : "class_type_expression",
+            "short_description" : {
+                "en" : "A show which featured the work.",
+                "fr" : "Un spectacle où s'est produit l'oeuvre."
+            },
+            "long_description" : {
+                "en" : "A show which featured the work.",
+                "fr" : "Un spectacle où s'est produit l'oeuvre."
+            },
+            "attributes" : [
+                {
+                    "name" : {
+                        "en" : "Title",
+                        "fr" : "Titre"
+                    },
+                    "type" : "string",
+                    "short_description" : {
+                        "en" : "The title of the show.",
+                        "fr" : "Le titre du spectacle."
+                    },
+                    "long_description" : {
+                        "en" : "The title of the show.",
+                        "fr" : "Le titre du spectacle."
+                    }
+                },
+                {
+                    "name" : {
+                        "en" : "Date",
+                        "fr" : "Date"
+                    },
+                    "type" : "date",
+                    "short_description" : {
+                        "en" : "The date the show was given.",
+                        "fr" : "La date à laquelle s'est déroulée le spectacle."
+                    },
+                    "long_description" : {
+                        "en" : "The date the show was given.",
+                        "fr" : "La date à laquelle s'est déroulée le spectacle."
+                    }
+                },
+                {
+                    "name" : {
+                        "en" : "Venue",
+                        "fr" : "Lieu"
+                    },
+                    "type" : "string",
+                    "short_description" : {
+                        "en" : "The venue of the show.",
+                        "fr" : "Le lieu du spectacle."
+                    },
+                    "long_description" : {
+                        "en" : "The venue of the show.",
+                        "fr" : "Le lieu du spectacle."
+                    }
+                },
+                {
+                    "name" : {
+                        "en" : "Structure name",
+                        "fr" : "Nom structure"
+                    },
+                    "type" : "string",
+                    "short_description" : {
+                        "en" : "The name of the organising structure.",
+                        "fr" : "Le nom de la structure d'organisation."
+                    },
+                    "long_description" : {
+                        "en" : "The name of the organising structure.",
+                        "fr" : "Le nom de la structure d'organisation."
+                    }
+                },
+                {
+                    "name" : {
+                        "en" : "Name",
+                        "fr" : "Nom"
+                    },
+                    "type" : "string",
+                    "short_description" : {
+                        "en" : "The show name (difference with title?).",
+                        "fr" : "Le nom du spectacle (difference avec titre?)."
+                    },
+                    "long_description" : {
+                        "en" : "The show name (difference with title?).",
+                        "fr" : "Le nom du spectacle (difference avec titre?)."
+                    }
+                }
+            ],
+            "data" : {
+                "heurist_id" : 102
+            }
+        },
+        {
+            "name" : {
+                "en" : "Technical notes",
+                "fr" : "Fiche technique"
+            },
+            "unique_id" : "class_technical_notes",
+            "type" : "class_type_manifestation",
+            "short_description" : {
+                "en" : "Technical notes about the execution of a piece.",
+                "fr" : "Une fiche technique à propos de l'execution de la pièce."
+            },
+            "long_description" : {
+                "en" : "Technical notes about the execution of a piece.",
+                "fr" : "Une fiche technique à propos de l'execution de la pièce."
+            },
+            "attributes" : [
+                {
+                    "name" : {
+                        "en" : "Title",
+                        "fr" : "Titre"
+                    },
+                    "type" : "string",
+                    "short_description" : {
+                        "en" : "The title of the technical notes.",
+                        "fr" : "Le titre de la fiche technique."
+                    },
+                    "long_description" : {
+                        "en" : "The title of the technical notes.",
+                        "fr" : "Le titre de la fiche technique."
+                    }
+                },
+                {
+                    "name" : {
+                        "en" : "Date",
+                        "fr" : "Date"
+                    },
+                    "type" : "date",
+                    "short_description" : {
+                        "en" : "The date of the technical notes.",
+                        "fr" : "La date de la fiche technique."
+                    },
+                    "long_description" : {
+                        "en" : "The date of the technical notes.",
+                        "fr" : "La date de la fiche technique."
+                    }
+                },
+                {
+                    "name" : {
+                        "en" : "ID",
+                        "fr" : "Identifiant"
+                    },
+                    "type" : "string",
+                    "short_description" : {
+                        "en" : "An ID associated with the technical notes.",
+                        "fr" : "Un identifiant associé à la fiche technique."
+                    },
+                    "long_description" : {
+                        "en" : "An ID associated with the technical notes.",
+                        "fr" : "Un identifiant associé à la fiche technique."
+                    }
+                }
+            ],
+            "data" : {
+                "heurist_id" : 110
+            }
+        },
+        {
+            "name" : {
+                "en" : "Program",
+                "fr" : "Programme"
+            },
+            "unique_id" : "class_program",
+            "type" : "class_type_manifestation",
+            "short_description" : {
+                "en" : "A program for a show.",
+                "fr" : "La programme pour un spectacle."
+            },
+            "long_description" : {
+                "en" : "A program for a show.",
+                "fr" : "La programme pour un spectacle."
+            },
+            "attributes" : [
+                {
+                    "name" : {
+                        "en" : "Date",
+                        "fr" : "Date"
+                    },
+                    "type" : "date",
+                    "short_description" : {
+                        "en" : "The date the program was written.",
+                        "fr" : "La date d'écriture de la programme."
+                    },
+                    "long_description" : {
+                        "en" : "The date the program was written.",
+                        "fr" : "La date d'écriture de la programme."
+                    }
+                },
+                {
+                    "name" : {
+                        "en" : "Venue",
+                        "fr" : "Lieu"
+                    },
+                    "type" : "string",
+                    "short_description" : {
+                        "en" : "The venue for a program.",
+                        "fr" : "Le lieu de la programme."
+                    },
+                    "long_description" : {
+                        "en" : "The venue for a program.",
+                        "fr" : "Le lieu de la programme."
+                    }
+                }
+            ],
+            "data" : {
+                "heurist_id" : 109
+            }
+        },
+        {
+            "name" : {
+                "en" : "Project folder",
+                "fr" : "Dossier de projet"
+            },
+            "unique_id" : "class_project_folder",
+            "type" : "class_type_manifestation",
+            "short_description" : {
+                "en" : "A folder presenting a project/piece.",
+                "fr" : "Un dossier qui présente un projet/une pièce."
+            },
+            "long_description" : {
+                "en" : "A folder presenting a project/piece.",
+                "fr" : "Un dossier qui présente un projet/une pièce."
+            },
+            "attributes" : [
+                {
+                    "name" : {
+                        "en" : "Title",
+                        "fr" : "Titre"
+                    },
+                    "type" : "string",
+                    "short_description" : {
+                        "en" : "The title of the project folder.",
+                        "fr" : "Le titre du dossier de projet."
+                    },
+                    "long_description" : {
+                        "en" : "The title of the project folder.",
+                        "fr" : "Le titre du dossier de projet."
+                    }
+                },
+                {
+                    "name" : {
+                        "en" : "Subject",
+                        "fr" : "Sujet"
+                    },
+                    "type" : "",
+                    "short_description" : {
+                        "en" : "The subject of the project folder.",
+                        "fr" : "Le sujet du dossier de projet."
+                    },
+                    "long_description" : {
+                        "en" : "The subject of the project folder.",
+                        "fr" : "Le sujet du dossier de projet."
+                    }
+                },
+                {
+                    "name" : {
+                        "en" : "Date",
+                        "fr" : "Date"
+                    },
+                    "type" : "date",
+                    "short_description" : {
+                        "en" : "The date the project folder was written.",
+                        "fr" : "La date d'écriture du dossier de projet."
+                    },
+                    "long_description" : {
+                        "en" : "The date the project folder was written.",
+                        "fr" : "La date d'écriture du dossier de projet."
+                    }
+                },
+                {
+                    "name" : {
+                        "en" : "ID",
+                        "fr" : "Identifiant"
+                    },
+                    "type" : "string",
+                    "short_description" : {
+                        "en" : "An ID associated with the project folder.",
+                        "fr" : "Un identifiant associé au dossier de projet."
+                    },
+                    "long_description" : {
+                        "en" : "An ID associated with the project folder.",
+                        "fr" : "Un identifiant associé au dossier de projet."
+                    }
+                }
+            ],
+            "data" : {
+                "heurist_id" : 112
+            }
+        },
+        {
+            "name" : {
+                "en" : "Multimedia document",
+                "fr" : "Document multimedia"
+            },
+            "unique_id" : "class_multimedia_document",
+            "type" : "class_type_manifestation",
+            "short_description" : {
+                "en" : "An ad hoc multimedia document.",
+                "fr" : "Un document multimédia ad hoc."
+            },
+            "long_description" : {
+                "en" : "An ad hoc multimedia document.",
+                "fr" : "Un document multimédia ad hoc."
+            },
+            "attributes" : [
+                {
+                    "name" : {
+                        "en" : "Name",
+                        "fr" : "Nom"
+                    },
+                    "type" : "string",
+                    "short_description" : {
+                        "en" : "The multimedia document's file name.",
+                        "fr" : "Le nom de fichier du document multimédia."
+                    },
+                    "long_description" : {
+                        "en" : "The multimedia document's file name.",
+                        "fr" : "Le nom de fichier du document multimédia."
+                    }
+                },
+                {
+                    "name" : {
+                        "en" : "Type",
+                        "fr" : "Type"
+                    },
+                    "type" : "string",
+                    "short_description" : {
+                        "en" : "The type of multimedia document (audio, image etc.).",
+                        "fr" : "Le type du document multimédia (audio, image etc.)."
+                    },
+                    "long_description" : {
+                        "en" : "The type of multimedia document (audio, image etc.).",
+                        "fr" : "Le type du document multimédia (audio, image etc.)."
+                    }
+                },
+                {
+                    "name" : {
+                        "en" : "Format",
+                        "fr" : "Format"
+                    },
+                    "type" : "string",
+                    "short_description" : {
+                        "en" : "The format of the multimedia document (typically the file extension).",
+                        "fr" : "Le format du document multimédia (typiquement l'extension de fichier)."
+                    },
+                    "long_description" : {
+                        "en" : "The format of the multimedia document (typically the file extension).",
+                        "fr" : "Le format du document multimédia (typiquement l'extension de fichier)."
+                    }
+                },
+                {
+                    "name" : {
+                        "en" : "Size",
+                        "fr" : "Taille"
+                    },
+                    "type" : "number",
+                    "short_description" : {
+                        "en" : "The file size of the multimedia document.",
+                        "fr" : "La taille de fichier du document multimedia."
+                    },
+                    "long_description" : {
+                        "en" : "The file size of the multimedia document.",
+                        "fr" : "La taille de fichier du document multimedia."
+                    }
+                },
+                {
+                    "name" : {
+                        "en" : "Description",
+                        "fr" : "Description"
+                    },
+                    "type" : "string",
+                    "short_description" : {
+                        "en" : "A discription of the multimedia document.",
+                        "fr" : "Une description du docuemnt multimedia."
+                    },
+                    "long_description" : {
+                        "en" : "A discription of the multimedia document.",
+                        "fr" : "Une description du docuemnt multimedia."
+                    }
+                },
+                {
+                    "name" : {
+                        "en" : "ID",
+                        "fr" : "Identifiant"
+                    },
+                    "type" : "string",
+                    "short_description" : {
+                        "en" : "An ID associated with the multimedia document.",
+                        "fr" : "Un identifiant associé au document multimédia."
+                    },
+                    "long_description" : {
+                        "en" : "An ID associated with the multimedia document.",
+                        "fr" : "Un identifiant associé au document multimédia."
+                    }
+                }
+            ],
+            "data" : {
+                "heurist_id" : 113
+            }
+        }
+    ],
+    "relations" : [
+        {
+            "name" : {
+                "en" : "is declared",
+                "fr" : "est declaré"
+            },
+            "unique_id" : "composition_is_declared_sacem",
+            "short_description" : {
+                "en" : "The composition is declared to the Sacem.",
+                "fr" : "La composition est declaré au Sacem."
+            },
+            "long_description" : {
+                "en" : "The composition is declared to the Sacem.",
+                "fr" : "La composition est declaré au Sacem."
+            },
+            "source_class" : "class_composition",
+            "target_class" : "class_sacem",
+            "bidirectional" : false
+        },
+        {
+            "name" : {
+                "en" : "documents",
+                "fr" : "documente"
+            },
+            "unique_id" : "composition_documents_creation_process",
+            "short_description" : {
+                "en" : "The composition documents a creative process.",
+                "fr" : "La composition documente un processus de création."
+            },
+            "long_description" : {
+                "en" : "The composition documents a creative process.",
+                "fr" : "La composition documente un processus de création."
+            },
+            "source_class" : "class_composition",
+            "target_class" : "class_creation_process",
+            "bidirectional" : false
+        },
+        {
+            "name" : {
+                "en" : "generates",
+                "fr" : "engendre"
+            },
+            "unique_id" : "composition_generates_version",
+            "short_description" : {
+                "en" : "The composition generates a version of the composition.",
+                "fr" : "La composition engenre une version de la composition."
+            },
+            "long_description" : {
+                "en" : "The composition generates a version of the composition.",
+                "fr" : "La composition engenre une version de la composition."
+            },
+            "source_class" : "class_composition",
+            "target_class" : "class_version",
+            "bidirectional" : false
+        },
+        {
+            "name" : {
+                "en" : "composes",
+                "fr" : "compose"
+            },
+            "unique_id" : "composer_composes_composition",
+            "short_description" : {
+                "en" : "The composer composes a composition.",
+                "fr" : "Le compositeur compose une composition."
+            },
+            "long_description" : {
+                "en" : "The composer composes a composition.",
+                "fr" : "Le compositeur compose une composition."
+            },
+            "source_class" : "class_composer",
+            "target_class" : "class_composition",
+            "bidirectional" : false
+        },
+        {
+            "name" : {
+                "en" : "meditises",
+                "fr" : "médiatise"
+            },
+            "unique_id" : "press_mediatises_composer",
+            "short_description" : {
+                "en" : "A press cutting mediatises a composer.",
+                "fr" : "Un fragement de presse médiatise le compositeur."
+            },
+            "long_description" : {
+                "en" : "A press cutting mediatises a composer.",
+                "fr" : "Un fragement de presse médiatise le compositeur."
+            },
+            "source_class" : "class_press",
+            "target_class" : "class_composer",
+            "bidirectional" : false
+        },
+        {
+            "name" : {
+                "en" : "is declared",
+                "fr" : "est declaré"
+            },
+            "unique_id" : "version_is_declared_sacem",
+            "short_description" : {
+                "en" : "A version of a composition is declared to the Sacem.",
+                "fr" : "Une version d'une composition est declaré au Sacem."
+            },
+            "long_description" : {
+                "en" : "A version of a composition is declared to the Sacem.",
+                "fr" : "Une version d'une composition est declaré au Sacem."
+            },
+            "source_class" : "class_version",
+            "target_class" : "class_sacem",
+            "bidirectional" : false
+        },
+        {
+            "name" : {
+                "en" : "is declared",
+                "fr" : "est declaré"
+            },
+            "unique_id" : "grouping_is_declared_sacem",
+            "short_description" : {
+                "en" : "A grouping of elements divers is declared to the Sacem.",
+                "fr" : "Un regroupement de divers elements est déclaré au Sacem."
+            },
+            "long_description" : {
+                "en" : "A grouping of elements divers is declared to the Sacem.",
+                "fr" : "Un regroupement de divers elements est déclaré au Sacem."
+            },
+            "source_class" : "class_grouping",
+            "target_class" : "class_sacem",
+            "bidirectional" : false
+        },
+        {
+            "name" : {
+                "en" : "groups",
+                "fr" : "rassemble"
+            },
+            "unique_id" : "grouping_groups_version",
+            "short_description" : {
+                "en" : "The grouping can accept a version.",
+                "fr" : "Le regroupement peut accepter une version."
+            },
+            "long_description" : {
+                "en" : "The grouping can accept a version.",
+                "fr" : "Le regroupement peut accepter une version."
+            },
+            "source_class" : "class_grouping",
+            "target_class" : "class_version",
+            "bidirectional" : false
+        },
+        {
+            "name" : {
+                "en" : "represents",
+                "fr" : "représente"
+            },
+            "unique_id" : "album_represents_grouping",
+            "short_description" : {
+                "en" : "An album represents a grouping of divers elements.",
+                "fr" : "Un album représente un regroupement de plusieurs éléments."
+            },
+            "long_description" : {
+                "en" : "An album represents a grouping of divers elements.",
+                "fr" : "Un album représente un regroupement de plusieurs éléments."
+            },
+            "source_class" : "class_album",
+            "target_class" : "class_grouping",
+            "bidirectional" : false
+        },
+        {
+            "name" : {
+                "en" : "represents",
+                "fr" : "représente"
+            },
+            "unique_id" : "show_represents_grouping",
+            "short_description" : {
+                "en" : "A show represents a grouping of divers elements.",
+                "fr" : "Un spectacle repérente un regroupement de plusieurs éléments."
+            },
+            "long_description" : {
+                "en" : "A show represents a grouping of divers elements.",
+                "fr" : "Un spectacle repérente un regroupement de plusieurs éléments."
+            },
+            "source_class" : "class_show",
+            "target_class" : "class_grouping",
+            "bidirectional" : false
+        },
+        {
+            "name" : {
+                "en" : "captures",
+                "fr" : "capte"
+            },
+            "unique_id" : "multimedia_document_captures_grouping",
+            "short_description" : {
+                "en" : "A multimedia document captures a grouping of divers elements.",
+                "fr" : "Un document multimédia capture un regroupement d'éléments divers."
+            },
+            "long_description" : {
+                "en" : "A multimedia document captures a grouping of divers elements.",
+                "fr" : "Un document multimédia capture un regroupement d'éléments divers."
+            },
+            "source_class" : "class_multimedia_document",
+            "target_class" : "class_grouping",
+            "bidirectional" : false
+        },
+        {
+            "name" : {
+                "en" : "uses",
+                "fr" : "emploie"
+            },
+            "unique_id" : "version_uses_sample",
+            "short_description" : {
+                "en" : "The version uses a sample.",
+                "fr" : "Le version utilise un sample."
+            },
+            "long_description" : {
+                "en" : "The version uses a sample.",
+                "fr" : "Le version utilise un sample."
+            },
+            "source_class" : "class_version",
+            "target_class" : "class_sample",
+            "bidirectional" : false
+        },
+        {
+            "name" : {
+                "en" : "transcribes",
+                "fr" : "transcrit"
+            },
+            "unique_id" : "score_transcribes_version",
+            "short_description" : {
+                "en" : "A score transcribes a version.",
+                "fr" : "Une partition transcrit une version."
+            },
+            "long_description" : {
+                "en" : "A score transcribes a version.",
+                "fr" : "Une partition transcrit une version."
+            },
+            "source_class" : "class_score",
+            "target_class" : "class_version",
+            "bidirectional" : false
+        },
+        {
+            "name" : {
+                "en" : "publishes",
+                "fr" : "publie"
+            },
+            "unique_id" : "album_publishes_version",
+            "short_description" : {
+                "en" : "An album publishes a version.",
+                "fr" : "Un album publie une version."
+            },
+            "long_description" : {
+                "en" : "An album publishes a version.",
+                "fr" : "Un album publie une version."
+            },
+            "source_class" : "class_album",
+            "target_class" : "class_version",
+            "bidirectional" : false
+        },
+        {
+            "name" : {
+                "en" : "represents",
+                "fr" : "représente"
+            },
+            "unique_id" : "show_represents_version",
+            "short_description" : {
+                "en" : "A show represents a version.",
+                "fr" : "Un spectacle représente une version."
+            },
+            "long_description" : {
+                "en" : "A show represents a version.",
+                "fr" : "Un spectacle représente une version."
+            },
+            "source_class" : "class_show",
+            "target_class" : "class_version",
+            "bidirectional" : false
+        },
+        {
+            "name" : {
+                "en" : "captures",
+                "fr" : "capte"
+            },
+            "unique_id" : "multimedia_document_captures_version",
+            "short_description" : {
+                "en" : "A multimedia document captures a version.",
+                "fr" : "Un document multimédia capture une version."
+            },
+            "long_description" : {
+                "en" : "A multimedia document captures a version.",
+                "fr" : "Un document multimédia capture une version."
+            },
+            "source_class" : "class_multimedia_document",
+            "target_class" : "class_version",
+            "bidirectional" : false
+        },
+        {
+            "name" : {
+                "en" : "linked to",
+                "fr" : "lié à"
+            },
+            "unique_id" : "sample_linked_to_score",
+            "short_description" : {
+                "en" : "A sample and a score can be linked.",
+                "fr" : "Un sample et une partition peuvent être liés."
+            },
+            "long_description" : {
+                "en" : "A sample and a score can be linked.",
+                "fr" : "Un sample et une partition peuvent être liés."
+            },
+            "source_class" : "class_sample",
+            "target_class" : "class_score",
+            "bidirectional" : true
+        },
+        {
+            "name" : {
+                "en" : "executes",
+                "fr" : "execute"
+            },
+            "unique_id" : "role_executes_score",
+            "short_description" : {
+                "en" : "A certain role can execute a score.",
+                "fr" : "Un certain rôle peut exécuter une partition."
+            },
+            "long_description" : {
+                "en" : "A certain role can execute a score.",
+                "fr" : "Un certain rôle peut exécuter une partition."
+            },
+            "source_class" : "class_role",
+            "target_class" : "class_score",
+            "bidirectional" : false
+        },
+        {
+            "name" : {
+                "en" : "occupies",
+                "fr" : "occupe"
+            },
+            "unique_id" : "performer_occupies_role",
+            "short_description" : {
+                "en" : "A performer can occupy a role.",
+                "fr" : "Un interprète peut occuper un rôle."
+            },
+            "long_description" : {
+                "en" : "A performer can occupy a role.",
+                "fr" : "Un interprète peut occuper un rôle."
+            },
+            "source_class" : "class_performer",
+            "target_class" : "class_role",
+            "bidirectional" : false
+        },
+        {
+            "name" : {
+                "en" : "needs",
+                "fr" : "nécessite"
+            },
+            "unique_id" : "album_needs_role",
+            "short_description" : {
+                "en" : "An album needs someone in a certain role.",
+                "fr" : "Un album nécessite quelqu'un d'un certain rôle."
+            },
+            "long_description" : {
+                "en" : "An album needs someone in a certain role.",
+                "fr" : "Un album nécessite quelqu'un d'un certain rôle."
+            },
+            "source_class" : "class_album",
+            "target_class" : "class_role",
+            "bidirectional" : false
+        },
+        {
+            "name" : {
+                "en" : "needs",
+                "fr" : "nécessite"
+            },
+            "unique_id" : "show_needs_role",
+            "short_description" : {
+                "en" : "A show needs someone in a certain role.",
+                "fr" : "Un spectacle nécessite quelqu'un d'un certain rôle."
+            },
+            "long_description" : {
+                "en" : "A show needs someone in a certain role.",
+                "fr" : "Un spectacle nécessite quelqu'un d'un certain rôle."
+            },
+            "source_class" : "class_show",
+            "target_class" : "class_role",
+            "bidirectional" : false
+        },
+        {
+            "name" : {
+                "en" : "meditises",
+                "fr" : "médiatise"
+            },
+            "unique_id" : "press_mediatises_show",
+            "short_description" : {
+                "en" : "A press clipping can mediatise a show.",
+                "fr" : "Un fragement de presse peut médiatiser un spectacle."
+            },
+            "long_description" : {
+                "en" : "A press clipping can mediatise a show.",
+                "fr" : "Un fragement de presse peut médiatiser un spectacle."
+            },
+            "source_class" : "class_press",
+            "target_class" : "class_show",
+            "bidirectional" : false
+        },
+        {
+            "name" : {
+                "en" : "mediatise",
+                "fr" : "médiatise"
+            },
+            "unique_id" : "press_mediatises_album",
+            "short_description" : {
+                "en" : "A press clipping can mediatise an album.",
+                "fr" : "Un fragement de presse peut médiatiser un album."
+            },
+            "long_description" : {
+                "en" : "A press clipping can mediatise an album.",
+                "fr" : "Un fragement de presse peut médiatiser un album."
+            },
+            "source_class" : "class_press",
+            "target_class" : "class_album",
+            "bidirectional" : false
+        },
+        {
+            "name" : {
+                "en" : "generates",
+                "fr" : "génère"
+            },
+            "unique_id" : "show_generates_multimedia_document",
+            "short_description" : {
+                "en" : "A show can generate multimedia documents.",
+                "fr" : "Un spectacle peut générer des documents multimédias."
+            },
+            "long_description" : {
+                "en" : "A show can generate multimedia documents.",
+                "fr" : "Un spectacle peut générer des documents multimédias."
+            },
+            "source_class" : "class_show",
+            "target_class" : "class_multimedia_document",
+            "bidirectional" : false
+        },
+        {
+            "name" : {
+                "en" : "presents",
+                "fr" : "présente"
+            },
+            "unique_id" : "project_folder_presents_show",
+            "short_description" : {
+                "en" : "A project folder presents what will occur during a show.",
+                "fr" : "Un dossier de projet présente ce qui se déroulera pendant un spectacle."
+            },
+            "long_description" : {
+                "en" : "A project folder presents what will occur during a show.",
+                "fr" : "Un dossier de projet présente ce qui se déroulera pendant un spectacle."
+            },
+            "source_class" : "class_project_folder",
+            "target_class" : "class_show",
+            "bidirectional" : false
+        },
+        {
+            "name" : {
+                "en" : "décrit",
+                "fr" : "describes"
+            },
+            "unique_id" : "program_describes_show",
+            "short_description" : {
+                "en" : "A program describes what will happen during a show.",
+                "fr" : "Une programme décrit ce qui se déroulera lors d'un spectacle."
+            },
+            "long_description" : {
+                "en" : "A program describes what will happen during a show.",
+                "fr" : "Une programme décrit ce qui se déroulera lors d'un spectacle."
+            },
+            "source_class" : "class_program",
+            "target_class" : "class_show",
+            "bidirectional" : false
+        },
+        {
+            "name" : {
+                "en" : "plans",
+                "fr" : "palnifie"
+            },
+            "unique_id" : "technical_notes_plan_show",
+            "short_description" : {
+                "en" : "The technical notes plan what will happen during a show.",
+                "fr" : "La fiche technique planifie ce qui se déroulera lors d'un spectacle."
+            },
+            "long_description" : {
+                "en" : "The technical notes plan what will happen during a show.",
+                "fr" : "La fiche technique planifie ce qui se déroulera lors d'un spectacle."
+            },
+            "source_class" : "class_technical_notes",
+            "target_class" : "class_show",
+            "bidirectional" : false
+        },
+        {
+            "name" : {
+                "en" : "plans",
+                "fr" : "planifie"
+            },
+            "unique_id" : "program_plans_technical_notes",
+            "short_description" : {
+                "en" : "The program for a show can plan technical notes.",
+                "fr" : "La programme d'une pièce planifie une fiche technique."
+            },
+            "long_description" : {
+                "en" : "The program for a show can plan technical notes.",
+                "fr" : "La programme d'une pièce planifie une fiche technique."
+            },
+            "source_class" : "class_program",
+            "target_class" : "class_technical_notes",
+            "bidirectional" : false
+        }
+    ]
+}
