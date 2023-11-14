@@ -25,6 +25,48 @@
             "fr" : "Modifier un projet existant"
         }
     },
+    "workspace" : {
+        "file_explorer_menu" : {
+            "reveal_all" : {
+                "en" : "Reveal All",
+                "fr" : "Montrer tout"
+            },
+            "hide_all" : {
+                "en" : "Hide All",
+                "fr" : "Cacher tout"
+            }
+        },
+        "record_explorer_menu" : {
+            "new_record" : {
+                "en" : "New Record",
+                "fr" : "Nouveau record"
+            }
+        },
+        "project" : {
+            "en" : "Project",
+            "fr" : "Projet"
+        },
+        "files" : {
+            "en" : "Files",
+            "fr" : "Fichiers"
+        },
+        "records" : {
+            "en" : "Records",
+            "fr" : "Records"
+        },
+        "open_project" : {
+            "en" : "Open Project",
+            "fr" : "Ouvrir Projet"
+        },
+        "switch_freeze" : {
+            "en" : "Switch Freeze",
+            "fr" : "Changer de point de contôle"
+        },
+        "new_freeze" : {
+            "en" : "New Freeze",
+            "fr" : "Nouveau point de contôle"
+        }
+    },
     "file_explorer" : {
         "select_a_file_message" : {
             "en" : "Select a file",

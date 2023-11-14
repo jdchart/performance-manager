@@ -25,3 +25,13 @@ export const get_folder = (pathIn) => {
     let path_split = pathIn.split("/");
     return path_split[path_split.length - 1];
 };
+
+export const setScrollBody = (val) => {
+    /*
+    Set the value of scroll for the main <body> HTML element.
+    For example: 'scroll' or 'hidden'.
+    Useful for deactivating scroll for popups.
+    */
+    var bodyEl = document.body;
+    bodyEl.style.overflow = val;
+};

@@ -1,0 +1,13 @@
+{
+    "metadata" : {
+        "name" : {
+            "en" : "Another ontology",
+            "fr" : "Une autre ontologie"
+        },
+        "authors" : [],
+        "links" : []
+    },
+    "class_types" : [],
+    "classes" : [],
+    "relations" : []
+}

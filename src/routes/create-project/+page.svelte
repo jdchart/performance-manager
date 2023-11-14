@@ -73,7 +73,7 @@
             let ontology_content = await server_utils.readJsonFile("src/lib/data/ontologies/" + project_data.ontology + "/ontology.json")
             record_list = utils.makeUnique(record_list_load);
             for(let class_entry of ontology_content["classes"]){
-                record_list["records"][class_entry["unique_id"]] = []
+                record_list["records"][class_entry["unique_id"]] = {"records" : [], "expanded" : true}
             };
             
             await server_utils.writeFile(freeze_path + "/record_list.json", JSON.stringify(record_list));

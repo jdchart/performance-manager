@@ -29,7 +29,7 @@
                 "fr" : "Oeuvre"
             },
             "unique_id" : "class_type_work",
-            "color" : []
+            "color" : "#81007f"
         },
         {
             "name" : {
@@ -37,7 +37,7 @@
                 "fr" : "Expression"
             },
             "unique_id" : "class_type_expression",
-            "color" : []
+            "color" : "#0000fe"
         },
         {
             "name" : {
@@ -45,7 +45,7 @@
                 "fr" : "Manifestation"
             },
             "unique_id" : "class_type_manifestation",
-            "color" : []
+            "color" : "#fe0000"
         },
         {
             "name" : {
@@ -53,7 +53,7 @@
                 "fr" : "Personne"
             },
             "unique_id" : "class_type_person",
-            "color" : []
+            "color" : "#008001"
         }
     ],
     "classes" : [

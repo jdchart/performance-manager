@@ -44,7 +44,7 @@
     .file_explorer_container{
         display: flex;
         width: 100%;
-        height: 75vh;
+        height: 50vh;
         gap: 0.5em;
         border: 1px solid #acacac;
         border-radius: 5px;

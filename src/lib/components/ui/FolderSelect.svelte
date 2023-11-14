@@ -2,7 +2,7 @@
     import * as file_system from "$lib/scripts/file_system.js";
     import { createEventDispatcher } from 'svelte'
 
-    const dispatch = createEventDispatcher()
+    const dispatch = createEventDispatcher();
 
     export let label = "Select Folder";
 
