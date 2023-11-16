@@ -56,6 +56,8 @@
         height: 100%;
         width: 60%;
         border-right: 1px solid #acacac;
+        background-color: rgb(243, 243, 243);
+        border-radius: 5px 0 0 5px;
     }
 
     .file_info_wrapper{

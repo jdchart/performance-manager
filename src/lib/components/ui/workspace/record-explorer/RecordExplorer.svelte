@@ -37,7 +37,12 @@
         record_list = record_list;
     };
 
+    export const select_record = (d) => {
+        handle_record_select(d)
+    }
+
     function handle_record_select(e){
+        // Also should open the correspond record type list
         set_val_recursive("selected", false, record_list);
         e.detail.record_data["selected"] = true;
         selected_record = e.detail.record_data;
@@ -60,21 +65,19 @@
 
     function all_records_lists_empty(r_list){
         let all_empty = true;
-
-        if(Object.keys(r_list["records"]).length === 0){
-            return all_empty;
-        }
-        else{
-            //Check here
-            return false;
-        }
-    }
+        for(let inner_key of Object.keys(r_list["records"])){
+            if(r_list["records"][inner_key]["records"].length > 0){
+                all_empty = false;
+            };
+        };
+        return all_empty;
+    };
 </script>
 
 <div class="record_explorer_container">
     <ul>
-        {#if all_records_lists_empty(record_list)}
-            <p>Add a record...</p>
+        {#if all_records_lists_empty(record_list) === true}
+            <p class="choose_file_message">(Add a record...)</p>
         {:else}
             {#each Object.entries(record_list["records"]) as [class_key, inner_record_list]}   
                 {#if ontology_data["classes"].length > 0}
@@ -121,6 +124,12 @@
 </div>
 
 <style>
+    .choose_file_message{
+        font-style: italic;
+        text-align: center;
+        padding-top: 2em;
+    }
+
     .record_explorer_container{
         display: flex;
         width: 100%;
@@ -158,6 +167,8 @@
         height: 100%;
         width: 40%;
         border-right: 1px solid #acacac;
+        background-color: rgb(243, 243, 243);
+        border-radius: 5px 0 0 5px;
     }
 
     .preview_ul{

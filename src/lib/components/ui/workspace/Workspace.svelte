@@ -6,6 +6,7 @@
     import AddRecord from '$lib/components/ui/AddRecord.svelte';
 
     let add_record_window;
+    let record_explorer_bind;
 
     import * as server_utils from "$lib/scripts/server_utils.js";
     import * as utils from "$lib/scripts/utils.js";
@@ -66,6 +67,8 @@
 
         record_list["records"][e.detail.record_data.unique_id]["records"].push(e.detail.record_data);
         record_list = record_list;
+
+        record_explorer_bind.select_record({"detail" : {"record_data" : e.detail.record_data, "record_unique_id" : e.detail.record_data.unique_id}});
     }
 
     function set_val_recursive(key_to_set, val, dict_obj){
@@ -102,6 +105,8 @@
             <div class="section_menu">
                 <button class="general_button">{page_vocab.workspace.file_explorer_menu.reveal_all[current_language]}</button>
                 <button class="general_button">{page_vocab.workspace.file_explorer_menu.hide_all[current_language]}</button>
+                <button class="general_button">Automatic record generation</button>
+                <button class="general_button">Show only unconnected records</button>
             </div>
             <FileExplorer
                 file_list = {file_list.hierarchy}
@@ -116,6 +121,7 @@
                 <button class="general_button">{page_vocab.workspace.file_explorer_menu.hide_all[current_language]}</button>
             </div>
             <RecordExplorer
+                bind:this = {record_explorer_bind}
                 bind:record_list = {record_list}
                 ontology_data = {ontology_data}
             />
@@ -132,6 +138,11 @@
 
     h3{
         padding-bottom: 0.3em;
+        font-weight: bold;
+    }
+
+    h2{
+        font-weight: bold;
     }
 
     .workspace_container > * {
