@@ -1,67 +1,87 @@
-<!--Wrapper for any window that you wish to be opened and closed.-->
+<!-- 
+    Wrapper for any window that you wish to be opened and closed.
+-->
 
 <script>
+    // Import dependencies:
     import * as utils from '$lib/scripts/utils.js';
-    import MacButton from '$lib/components/ui/windows/MacButton.svelte';
     import { onMount } from 'svelte';
+    import { createEventDispatcher } from 'svelte';
+    
+    // Import components
+    import MacButton from '$lib/components/ui/windows/MacButton.svelte';
+    
+    // Expose open and close window functions:
+    export const open_window = ()  => {set_hidden(false)};
+    export const close_window = () => {set_hidden(true)};
 
-    export const openWindow = ()  => {setHidden(false)};
-    export const closeWindow = () => {setHidden(true)};
-    export let closeButton  = true;
-    export let windowWidth  = 100; // This is given in vw
-    export let windowHeight = 100; // This is given in vh
+    // Expose variables:
+    export let close_button  = true;
+    export let window_width  = 100; // This is given in vw
+    export let window_height = 100; // This is given in vh
     export let hidden = true;
     
-    let styleString = '';
+    // Variable to style the window:
+    let style_string = '';
 
-    import { createEventDispatcher } from 'svelte';
-	const dispatch = createEventDispatcher();
+    // Create event dispatcher:
+    const dispatch = createEventDispatcher();
 
-    function setHidden(toSet){
+    onMount(async () => {
+        // Initialize scroll setting:
+        if(hidden === false){utils.set_scroll_body("hidden");};
+        
+        // Update the window size:
+        update_style_string();
+	});
+
+    function set_hidden(to_set){
         /*
         Toggle switch for setting the hidden variable.
         Will also activate or disactivate scroll on main body element.
         */
-        if(toSet === false){utils.setScrollBody("hidden");}
-        else{utils.setScrollBody("scroll");}
-        hidden = toSet;
-        dispatch('hiddenState', {
-			state: toSet
-		});
+        
+        // Activate or deactivate scroll:
+        if(to_set === false){utils.set_scroll_body("hidden");}
+        else{utils.set_scroll_body("scroll");}
+        
+        // Update hidden state and dispatch event:
+        hidden = to_set;
+        dispatch('hiddenState', {state: to_set});
     };
 
-    function updateStyleString(){
-        /*
-        Resize and centre the container div according to windowWidth and windowHeight in vh.
-        */
-        styleString = 'width:' + String(windowWidth) + 'vw;height:' + String(windowHeight) + 'vh;';
-        if(windowWidth < 100){
-            styleString = styleString + 'margin-left:' + String((100-windowWidth)*0.5) + 'vw;margin-right:' + String((100-windowWidth)*0.5) + 'vw;';
+    function update_style_string(){
+        /* Resize and centre the container div according to window_width and window_height in vh. */
+        
+        // Update the style string:
+        style_string = 'width:' + String(window_width) + 'vw;height:' + String(window_height) + 'vh;';
+        
+        // Add a margin the window width and height are less than 100 (for centring):
+        if(window_width < 100){
+            style_string = style_string + 'margin-left:' + String((100-window_width)*0.5) + 'vw;margin-right:' + String((100-window_width)*0.5) + 'vw;';
         }
-        if(windowHeight < 100){
-            styleString = styleString + 'margin-top:' + String((100-windowHeight)*0.5) + 'vh;margin-bottom:' + String((100-windowHeight)*0.5) + 'vh;';
+        if(window_height < 100){
+            style_string = style_string + 'margin-top:' + String((100-window_height)*0.5) + 'vh;margin-bottom:' + String((100-window_height)*0.5) + 'vh;';
         }
     };
-
-    onMount(async () => {
-        if(hidden === false){utils.setScrollBody("hidden");};
-        updateStyleString();
-	});
 </script>
 
-<svelte:window on:resize={updateStyleString}></svelte:window>
+<!-- Bind the resizing function to window resize: -->
+<svelte:window on:resize={update_style_string}></svelte:window>
 
 {#if hidden == false}
     <div class="blur">
-        <div class="popup_container" style={styleString}>
-            {#if closeButton === true}
+        <div class="popup_container" style={style_string}>
+            {#if close_button === true}
                 <div class="top_right_button">
+                    <!-- Close window button -->
                     <MacButton 
-                        action = {() => setHidden(true)}
+                        action = {() => set_hidden(true)}
                         type = {"close"}
                     />
                 </div>
             {/if}
+            <!-- Content goes here -->
             <slot />
         </div>
     </div>

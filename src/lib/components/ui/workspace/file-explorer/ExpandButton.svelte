@@ -1,25 +1,29 @@
+<!-- 
+    A file system-inspired expand button.
+-->
+
 <script>
+    // Import dependencies:
     import { createEventDispatcher } from 'svelte';
+
+    // Expose variables:
+    export let state = true;
+    
+    // Create event dispatcher:
     const dispatch = createEventDispatcher();
 
-    export let state = true;
-
     function handle_click(){
-        if(state){
-            state = false;
-        }else{
-            state = true;
-        };
+        /* Toggle the state between true and false. */
+        if(state){state = false;}
+        else{state = true;};
+
+        // Dispatch state change event:
         dispatch("update_file_list");
     };
 </script>
 
 <button on:click={() => handle_click()}>
-    {#if state}
-        ▼
-    {:else}
-        ▶
-    {/if}
+    {#if state}▼{:else}▶{/if}
 </button>
 
 <style>

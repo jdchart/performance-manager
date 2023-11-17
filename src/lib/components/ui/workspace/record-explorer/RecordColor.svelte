@@ -1,4 +1,9 @@
+<!-- 
+    Small component for displaying a coloured square.
+-->
+
 <script>
+    // Expose variables:
     export let col = "#000000";
 </script>
 

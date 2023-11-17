@@ -1,34 +1,22 @@
+<!-- 
+    A button that emulates the macOS window buttons.
+    TODO: Resolve A11y error. Possibly change to an a element?
+-->
+
 <script>
+    // Expose variables:
     export let action;
     export let type = "close"; // "close", "expand" or "min"
 </script>
 
 <div class="button_container">
-    {#if type === "close"}
-        <div class="button_back close_back" on:click={action}>
-            <div class="button_front close_front">
-                <span>
-                    <strong>x</strong>
-                </span>
-            </div>
+    <div on:click={action} class="button_back {type === 'close' ? 'close_back' : ''} {type === 'expand' ? 'expand_back' : ''} {type === 'min' ? 'min_back' : ''}">
+        <div class="button_front {type === 'close' ? 'close_front' : ''} {type === 'expand' ? 'expand_front' : ''} {type === 'min' ? 'min_front' : ''}">
+            <span>
+                <strong>{#if type === 'close'}x{:else if type === 'expand'}+{:else}-{/if} </strong>
+            </span>
         </div>
-    {:else if type === "expand"}
-        <div class="button_back expand_back" on:click={action}>
-            <div class="button_front expand_front">
-                <span>
-                    <strong>+</strong>
-                </span>
-            </div>
-        </div>
-    {:else if type === "min"}
-        <div class="button_back min_back" on:click={action}>
-            <div class="button_front min_front">
-                <span style="padding-left: 2px;">
-                    <strong>-</strong>
-                </span>
-            </div>
-        </div>
-    {/if}  
+    </div> 
 </div>
 
 <style>

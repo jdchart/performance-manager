@@ -1,49 +1,58 @@
+<!-- 
+    The top navigation bar found on every page of the website.
+-->
+
 <script>
+    // Import dependencies:
     import { onMount } from 'svelte';
+    
+    // Import components:
     import LanguageSelect from '$lib/components/ui/LanguageSelect.svelte';
     import SiteLogo from '$lib/components/ui/top-nav/SiteLogo.svelte';
     import TopNavButton from '$lib/components/ui/top-nav/TopNavButton.svelte';
 
     // Language handling:
+    import * as language from "$lib/scripts/language.js";
     import { lang } from '$lib/scripts/stores.js';
-    let current_language;
-	lang.subscribe(value => {
-		current_language = value;
-	});
-    import page_vocab from '$lib/data/vocab/general.json';
 
     // For resizeing offset:
     let offset_div;
     let container_div;
 
     onMount(async () => {
-        // Create offset div:
-        offset_div = document.createElement('div');
-        offset_div.style.height = String(container_div.offsetHeight) + 'px';
-        container_div.after(offset_div);
+        create_offset_div();
+        // Bind the resize menu function to window resize:
         window.onresize = resize_menu;
     });
 
+    function create_offset_div(){
+        /* Append a new div element to offset elements after the top menu. */
+        offset_div = document.createElement('div');
+        offset_div.style.height = String(container_div.offsetHeight) + 'px';
+        container_div.after(offset_div);
+    };
+
     function resize_menu() { 
+        /* Adjust the size of the offset div when win dow resizes. */
         offset_div.style.height = String(container_div.offsetHeight) + 'px';
     };
 </script>
 
 <div id="top_nav_container" bind:this={container_div}>
     <div id="top_nav_inner_div">
-        <header>
+        <header class="general_flex_wrap">
             <SiteLogo
-                title = {page_vocab.top_nav.site_title[current_language]}
+                title = {language.get_term(["top_nav", "site_title"], $lang)}
             />
             <div id="top_nav_nav_container">
                 <nav>
-                    <ul>
+                    <ul class="general_flex_wrap">
                         <TopNavButton
-                            label = {page_vocab.top_nav.nav_edit_project[current_language]}
+                            label = {language.get_term(["top_nav", "nav_edit_project"], $lang)}
                             link = {"/edit-project"}
                         />
                         <TopNavButton
-                            label = {page_vocab.top_nav.nav_create_project[current_language]}
+                            label = {language.get_term(["top_nav", "nav_create_project"], $lang)}
                             link = {"/create-project"}
                         />
                     </ul>
@@ -57,7 +66,6 @@
 </div>
 
 <style>
-
     #top_nav_container{
         z-index: 995;
         width: 100%;
@@ -73,13 +81,9 @@
         padding: 0.5em;
     }
 
-    header{
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        width: 100%;
+    #top_nav_nav_container{
         height: 100%;
-        gap: 1em;
+        display: flex;
     }
 
     #top_nav_right_content{
@@ -94,21 +98,7 @@
         padding-right: 0.5em;
     }
 
-    nav{
-        height:100%;
-    }
-
     ul{
-        height: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        width: 100%;
         gap: 0.5em;
-    }
-
-    #top_nav_nav_container{
-        height: 100%;
-        display: flex;
     }
 </style>

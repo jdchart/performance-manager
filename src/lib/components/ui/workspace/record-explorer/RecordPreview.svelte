@@ -1,17 +1,26 @@
-<script>
-    import { createEventDispatcher } from 'svelte'
+<!-- 
+    Populates the record list in the RecordExplorer.
+    TODO: Resolve A11y error. Possibly change to an a element?
+-->
 
+<script>
+    // Import dependencies:
+    import { createEventDispatcher } from 'svelte';
+
+    // Expose variables:
+    export let record_data;
+
+    // Create event dispatcher:
     const dispatch = createEventDispatcher();
 
-    export let record_data;
-    export let current_language;
+    function handle_select(){
+        /* Dispatch record selected event. */
 
-    function handle_select(record_id){
         dispatch("select_record", {record_data : record_data});
     };
 </script>
 
-<li on:click={() => handle_select(record_data.record_unique_id)} class={record_data.selected ? 'selected_record' : ''}>
+<li on:click={() => handle_select()} class="{record_data.selected ? 'list_element_selected' : ''} list_element_hover">
     <p>
         {#if record_data.attributes[0].value === ""}
             {record_data.record_unique_id}
@@ -24,15 +33,5 @@
 <style>
     li{
         padding: 0.1em;
-    }
-    li:hover{
-        background-color: rgba(85, 85, 85, 0.8);
-        cursor: pointer;
-        border-radius: 3px;
-    }
-
-    .selected_record{
-        border: 1px solid #acacac;
-        background-color: rgba(195, 195, 195, 0.8);
     }
 </style>

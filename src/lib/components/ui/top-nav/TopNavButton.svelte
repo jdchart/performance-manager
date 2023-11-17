@@ -1,10 +1,15 @@
+<!-- 
+    A button along the top navigation bar.
+-->
+
 <script>
+    // Expose variables:
     export let label;
     export let link;
 </script>
 
 <li>
-    <a href="{link}">
+    <a href="{link}" class="link_hover">
         {label}
     </a>
 </li>
@@ -14,15 +19,9 @@
         text-decoration: none;
         padding-right: 0.1em;
         height: 100%;
-        color: #2b2b2b;
+        color: #393939;
         border-radius: 4px;
         padding: 0.5em;
-    }
-
-    a:hover{
-        cursor: pointer;
-        background-color: rgba(240, 248, 255, 0.085);
-        transition-duration: 500ms;
     }
 
     li{

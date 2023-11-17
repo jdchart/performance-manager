@@ -1,54 +1,57 @@
+<!-- 
+    Display file info for the selected file.
+    TODO: Do this with iteration.
+-->
+
 <script>
+    // Import components:
     import TextFieldLabel from '$lib/components/ui/workspace/file-explorer/TextFieldLabel.svelte';
 
+    // Expose variables
     export let selected_file = {};
 
     // Language handling:
+    import * as language from "$lib/scripts/language.js";
     import { lang } from '$lib/scripts/stores.js';
-    let current_language;
-	lang.subscribe(value => {
-		current_language = value;
-	});
-    import page_vocab from '$lib/data/vocab/general.json';
 </script>
 
 <div class="file_info_container">
     {#if Object.keys(selected_file).length === 0}
-        <p class="choose_file_message">({page_vocab.file_explorer.select_a_file_message[current_language]}...)</p>
+        <p class="choose_file_message">({language.get_term(["file_explorer", "select_a_file_message"], $lang)}...)</p>
     {:else}
         <div>
             <TextFieldLabel
-                label = {page_vocab.file_explorer.name[current_language]}
+                label = {language.get_term(["file_explorer", "name"], $lang)}
                 value = {selected_file.name}
             />
         </div>
         <div>
             <TextFieldLabel
-                label = {page_vocab.file_explorer.path[current_language]}
+                label = {language.get_term(["file_explorer", "path"], $lang)}
                 value = {selected_file.path}
             />
         </div>
         <div>
             <TextFieldLabel
-                label = {page_vocab.file_explorer.extension[current_language]}
+                label = {language.get_term(["file_explorer", "extension"], $lang)}
                 value = {selected_file.extension}
             />
         </div>
         <div>
             <TextFieldLabel
-                label = {page_vocab.file_explorer.type[current_language]}
+                label = {language.get_term(["file_explorer", "type"], $lang)}
                 value = {selected_file.type}
             />
         </div>
         <div>
             <TextFieldLabel
-                label = {page_vocab.file_explorer.size[current_language]}
+                label = {language.get_term(["file_explorer", "size"], $lang)}
                 value = {"≃ " + String(Math.floor(selected_file.size / 1048576)) + " Mo"}  
             />
         </div>
         <div>
             <TextFieldLabel
-                label = {page_vocab.file_explorer.last_modified[current_language]}
+                label = {language.get_term(["file_explorer", "last_modified"], $lang)}
                 value = {new Date(selected_file.last_modified)}
             />
         </div>

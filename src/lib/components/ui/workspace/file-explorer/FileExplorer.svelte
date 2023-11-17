@@ -1,38 +1,46 @@
+<!-- 
+    The main file explorer component.
+-->
+
 <script>
+    // Import dependencies:
+    import * as utils from "$lib/scripts/utils.js";
+
+    // Import components
     import File from '$lib/components/ui/workspace/file-explorer/File.svelte';
     import FileInfo from '$lib/components/ui/workspace/file-explorer/FileInfo.svelte';
 
+    // Expose variables
     export let file_list = {};
     export let selected_file;
 
     function select_file(e){
-        set_val_recursive("selected", false, file_list);
-        e.detail.selected["selected"] = true;
-        selected_file = e.detail.selected;
-        file_list = file_list;
-    };
+        /* Select a single file */
 
-    function set_val_recursive(key_to_set, val, dict_obj){
-        for(let key of Object.keys(dict_obj)){
-            if(key == key_to_set){
-                dict_obj[key] = val;
-            };
-            if(typeof dict_obj[key] === 'object'){
-                set_val_recursive(key_to_set, val, dict_obj[key])
-            };
-        };
+        // Set all files to selected === false:
+        utils.set_val_recursive("selected", false, file_list);
+        
+        // Set the incoming event's selected value to true:
+        e.detail.selected["selected"] = true;
+        
+        // Update selected file to incoming event:
+        selected_file = e.detail.selected;
+        
+        // Trigger component update:
+        file_list = file_list;
     };
 </script>
 
 <div class="file_explorer_container">
+    <!-- File list pane: -->
     <ul>
         <File
             file_list = {file_list}
-            expanded = {true}
             on:select_file = {(e) => select_file(e)}
         />
     </ul>
     
+    <!-- File info pane: -->
     <div class="file_info_wrapper">
         <FileInfo
             selected_file = {selected_file}

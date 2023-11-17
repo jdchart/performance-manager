@@ -1,9 +1,15 @@
+<!-- 
+    The top logo of the website with image and name. 
+    Clicking leads to the home page.
+-->
+
 <script>
+    // Expose attributes:
     export let title = "Performance Manager";
 </script>
 
 <div id="site_logo_container">
-    <a href="/">
+    <a href="/" class="link_hover">
         <img src="images/site-logo.png" alt="Performance manager website logo" id="site_logo_image">
         <h1>{title}</h1>
     </a>
@@ -21,17 +27,7 @@
         border-radius: 4px;
     }
 
-    a:hover{
-        cursor: pointer;
-        background-color: rgba(240, 248, 255, 0.085);
-        transition-duration: 500ms;
-    }
-
     #site_logo_image{
         width: 3em;
-    }
-
-    h1{
-        color: #2b2b2b;
     }
 </style>
