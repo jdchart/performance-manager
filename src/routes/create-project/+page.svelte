@@ -11,25 +11,25 @@
     import * as utils from "$lib/scripts/utils.js";
 
     // Language handling:
-    import { lang, currentProject } from '$lib/scripts/stores.js';
+    import { lang, current_project } from '$lib/scripts/stores.js';
     let current_language;
 	lang.subscribe(value => {
 		current_language = value;
 	});
     let current_proj;
-	currentProject.subscribe(value => {
+	current_project.subscribe(value => {
 		current_proj = value;
 	});
     import page_vocab from '$lib/data/vocab/general.json';
 
     // Load empty project data:
     import project_data_load from '$lib/data/templates/empty_project.json';
-    let project_data = utils.makeUnique(project_data_load);
+    let project_data = utils.make_unique(project_data_load);
     project_data["project_name"] = page_vocab.create_project.field_project_name.default[current_language];
     project_data["root_folder"] = page_vocab.create_project.field_root_folder.default[current_language];
 
     import record_list_load from '$lib/data/templates/empty_record_list.json';
-    let record_list = utils.makeUnique(record_list_load);
+    let record_list = utils.make_unique(record_list_load);
 
     let ontology_list = [];
     let can_create = false;
@@ -41,10 +41,10 @@
 
     async function update_ontology_list(){
         //let ontology_file_list = await server_utils.getFiles("src/lib/data/ontologies");
-        let ontology_file_list = await server_utils.getDirs("src/lib/data/ontologies");
+        let ontology_file_list = await server_utils.get_dirs("src/lib/data/ontologies");
         ontology_list = [];
         for(let ontology_file of ontology_file_list){
-            let content = await server_utils.readJsonFile(ontology_file.path + "/ontology.json")
+            let content = await server_utils.read_json(ontology_file.path + "/ontology.json")
             ontology_list.push({"value" : utils.get_folder(ontology_file.path), "label" : content["metadata"]["name"][current_language]})
         };
         ontology_list = ontology_list;
@@ -70,8 +70,8 @@
             await server_utils.createDir(freeze_path);
             await server_utils.writeFile(freeze_path + "/file_list.json", JSON.stringify(file_list));
 
-            let ontology_content = await server_utils.readJsonFile("src/lib/data/ontologies/" + project_data.ontology + "/ontology.json")
-            record_list = utils.makeUnique(record_list_load);
+            let ontology_content = await server_utils.read_json("src/lib/data/ontologies/" + project_data.ontology + "/ontology.json")
+            record_list = utils.make_unique(record_list_load);
             for(let class_entry of ontology_content["classes"]){
                 record_list["records"][class_entry["unique_id"]] = {"records" : [], "expanded" : true}
             };
@@ -79,7 +79,7 @@
             await server_utils.writeFile(freeze_path + "/record_list.json", JSON.stringify(record_list));
 
             current_proj = project_data["project_path"];
-            currentProject.set(current_proj);
+            current_project.set(current_proj);
 
             goto('/edit-project');
         };

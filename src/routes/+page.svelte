@@ -92,37 +92,6 @@
         color: #797979;
     }
 
-    .button_container{
-        width: fit-content;
-        margin: auto;
-        margin-top: 3em;
-    }
-
-    button{
-        background-color: #ffa578;
-        border-radius: 0.3em;
-        border: none;
-        padding-top: 1em;
-        padding-bottom: 1em;
-        padding-left: 2em;
-        padding-right: 2em;
-    }
-
-    button:hover{
-        cursor: pointer;
-        background-color: #ffc1a2;
-    }
-
-    .button_main_label{
-        font-weight: bold;
-        color: #393939;
-    }
-
-    .button_lower_label{
-        padding-top: 0.5em;
-        color: #797979;
-    }
-
     #main_page_buttons{
         width: 100%;
         display: flex;

@@ -1,3 +1,7 @@
+<!-- 
+    Component for setting the current language across the website.
+-->
+
 <script>
     // Get the language store:
     import { lang } from '$lib/scripts/stores.js';
@@ -8,10 +12,10 @@
 		current_language = value;
 	});
 
-    // Update the language:
     function updateLang(){
+        /* Update language store */
         lang.set(current_language);
-    }
+    };
 </script>
 
 <!--Language update select element-->

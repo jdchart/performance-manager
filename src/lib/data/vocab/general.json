@@ -26,6 +26,20 @@
         }
     },
     "workspace" : {
+        "add_record_popup" : {
+            "type" : {
+                "en" : "Type",
+                "fr" : "Type"
+            },
+            "add" : {
+                "en" : "Add",
+                "fr" : "Ajouter"
+            },
+            "select_record_type" : {
+                "en" : "Select a record type",
+                "fr" : "Choisissez un type de record"
+            }
+        },
         "file_explorer_menu" : {
             "reveal_all" : {
                 "en" : "Reveal All",

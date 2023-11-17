@@ -1,10 +1,15 @@
+<!-- 
+    Basic data entry for selecting between a list of options.
+-->
+
 <script>
+    // Expose variables:
     export let label;
     export let value;
     export let options;
 </script>
 
-<div class="text_filed_input_container">
+<div class="field_entry_container">
     <p class="bold_label">{label}</p>
     <select bind:value={value}>
         {#each options as option}
@@ -12,13 +17,3 @@
         {/each}
     </select>
 </div>
-
-<style>
-    .text_filed_input_container{
-        display: grid;
-        grid-template-columns: 1fr 4fr;
-        align-items: center;
-        gap: 0.5em;
-        width: 100%;
-    }
-</style>

@@ -85,6 +85,13 @@ nav{
     background-color: rgba(195, 195, 195, 0.8);
 }
 
+.field_entry_container{
+	display: grid;
+	grid-template-columns: 1fr 4fr;
+	align-items: center;
+	gap: 0.5em;
+	width: 100%;
+}
 
 
 

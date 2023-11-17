@@ -1,19 +1,14 @@
+<!-- 
+    Basic data entry for text input.
+-->
+
 <script>
+    // Expose variables:
     export let label;
     export let value;
 </script>
 
-<div class="text_filed_input_container">
+<div class="field_entry_container">
     <p class="bold_label">{label}</p>
     <input bind:value={value}>
 </div>
-
-<style>
-    .text_filed_input_container{
-        display: grid;
-        grid-template-columns: 1fr 4fr;
-        align-items: center;
-        gap: 0.5em;
-        width: 100%;
-    }
-</style>

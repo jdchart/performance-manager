@@ -1,7 +1,7 @@
-export const checkIfFileExists = async (path) => {
-    /*
-    Check if given file exists.
-    */
+// TODO: some of these should be other things than posts...
+
+export const is_file = async (path) => {
+    /* Check if given file exists. */
     const response = await fetch('', {
         method: 'POST',
         body: JSON.stringify({
@@ -51,10 +51,8 @@ export const writeFile = async (path, content) => {
     await response.json();
 };
 
-export const readJsonFile = async (path) => {
-    /*
-    Read a file to any path (in src or static)
-    */
+export const read_json = async (path) => {
+    /* Read a file to any path (in src or static). */
     const response = await fetch('', {
         method: 'POST',
         body: JSON.stringify({
@@ -89,7 +87,7 @@ export const getDirTree = async (path, recusive = true, accepted = []) => {
     return rep;
 };
 
-export const getDirs = async (path, recursive = true) => {
+export const get_dirs = async (path, recursive = true) => {
     /*
     Return the folders in a dir
     */
