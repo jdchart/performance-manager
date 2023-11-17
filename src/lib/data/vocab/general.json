@@ -34,6 +34,14 @@
             "hide_all" : {
                 "en" : "Hide All",
                 "fr" : "Cacher tout"
+            },
+            "automatic_record_gen" : {
+                "en" : "Automatic record generation",
+                "fr" : "Création de records automatique"
+            },
+            "show_only_unconnected" : {
+                "en" : "Show only unconnected records",
+                "fr" : "Montrer seulement fichiers sans record"
             }
         },
         "record_explorer_menu" : {
@@ -41,6 +49,10 @@
                 "en" : "New Record",
                 "fr" : "Nouveau record"
             }
+        },
+        "save_project" : {
+            "en" : "Save freeze",
+            "fr" : "Enregistrer point de contrôle"
         },
         "project" : {
             "en" : "Project",
@@ -65,6 +77,28 @@
         "new_freeze" : {
             "en" : "New Freeze",
             "fr" : "Nouveau point de contôle"
+        }
+    },
+    "record_explorer" : {
+        "select_record" : {
+            "en" : "Select a record",
+            "fr" : "Choisissez un record"
+        },
+        "remove_record" : {
+            "en" : "Remove",
+            "fr" : "Supprimer"
+        },
+        "associate_to_file" : {
+            "en" : "Associate to selected file",
+            "fr" : "Associer au fichier selectionné"
+        },
+        "add_relation" : {
+            "en" : "Add relation",
+            "fr" : "Ajouter une relation"
+        },
+        "add_a_record" : {
+            "en" : "Add a record",
+            "fr" : "Ajoutez un record"
         }
     },
     "file_explorer" : {

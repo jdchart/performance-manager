@@ -1,6 +1,16 @@
+/* General elements */
 body, div, h1, h2, h3, ul{
 	font-family: 'Arial', sans-serif;
 	box-sizing: border-box;
+}
+
+body{
+	height: 100%;
+    margin: 0;
+}
+
+h1, h2, h3, h4{
+	color: #393939;
 }
 
 h1{
@@ -11,35 +21,83 @@ h2{
 	font-size: large;
 }
 
-.bold_label{
-	font-weight: bold;
+nav{
+	height:100%;
 }
 
-body{
+/* General utils */
+.general_flex_wrap{
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	width: 100%;
 	height: 100%;
-    margin: 0;
+	gap: 1em;
 }
 
 .content_container{
 	padding: 1em;
 	background-color: rgba(228, 235, 235, 0.9);
-
 	height: 100%;
 }
 
-.general_button{
-	background-color: rgba(85, 146, 153, 0.9);
-	border: 1px solid #acacac;
-	color: #2b2b2b;
-	padding: 0.3em;
-	border-radius: 5px;
+.blur{
+	z-index: 998;
+	background-color: rgba(255, 255, 255, 0.7);
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100vw;
+	height: 100vh;
 }
 
-.general_button:hover{
-	cursor: pointer;
-	background-color: rgba(108, 177, 185, 0.9);
-	transition-duration: 500ms;
+.popup_container{
+	z-index: 999;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	overflow: hidden;
+	width: 100vw;
+	height: 100vh;
+	border: 1px solid #acacac;
+  	border-radius: 6px;
+  	box-shadow: 0px 0px 20px #acacac;
 }
+
+.bold_label{
+	font-weight: bold;
+}
+
+.link_hover:hover{
+	cursor: pointer;
+	background-color: rgba(240, 248, 255, 0.085);
+	transition-duration: 200ms;
+}
+
+.list_element_hover:hover{
+	background-color: rgba(85, 85, 85, 0.8);
+	cursor: pointer;
+	border-radius: 3px;
+}
+
+.list_element_selected{
+	border: 1px solid #acacac;
+    background-color: rgba(195, 195, 195, 0.8);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .orange_general_button{
 	background-color: #ffa578;
@@ -80,27 +138,5 @@ body{
 	color: #797979;
 }
 
-.blur{
-	/*This class is what will happen to the background when a popup is opened.*/
-	z-index: 998;
-	background-color: rgba(255, 255, 255, 0.7);
-	position: fixed;
-	top: 0px;
-	left: 0px;
-	width: 100vw;
-	height: 100vh;
-}
 
-.popup_container{
-	/*This class is for the container div of any popup.*/
-	z-index: 999;
-	position: fixed;
-	top: 0px;
-	left: 0px;
-	overflow: hidden;
-	width: 100vw;
-	height: 100vh;
-	border: 1px solid #acacac;
-  	border-radius: 6px;
-  	box-shadow: 0px 0px 20px #acacac;
-}
+
