@@ -128,6 +128,7 @@
         <div>
             <h3>{language.get_term(["workspace", "files"], $lang)}</h3>
             <div class="section_menu">
+                <!-- Thiss will be a functional ui switch -->
                 <GeneralButton
                     label = {language.get_term(["workspace", "file_explorer_menu", "reveal_all"], $lang)}
                     func = {() => console.log("hello world")}
@@ -136,10 +137,12 @@
                     label = {language.get_term(["workspace", "file_explorer_menu", "hide_all"], $lang)}
                     func = {() => console.log("hello world")}
                 />
+                <!-- Thiss will be a functional ui button -->
                 <GeneralButton
                     label = {language.get_term(["workspace", "file_explorer_menu", "automatic_record_gen"], $lang)}
                     func = {() => console.log("hello world")}
                 />
+                <!-- Thiss will be a functional ui toggle -->
                 <GeneralButton
                     label = {language.get_term(["workspace", "file_explorer_menu", "show_only_unconnected"], $lang)}
                     func = {() => console.log("hello world")}

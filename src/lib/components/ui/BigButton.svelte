@@ -8,10 +8,11 @@
     export let bottom_label = "";
     export let func;
     export let centre = true;
+    export let enabled = true;
 </script>
 
 <div class="{centre ? 'button_container_centre' : 'button_container'}">
-    <button on:click={() => func()}>
+    <button on:click={() => func()} class="{enabled ? '' : 'disabled_button'}" disabled={!enabled}>
         <p class="button_main_label">
             {top_label}
         </p>
@@ -47,6 +48,16 @@
     button:hover{
         cursor: pointer;
         background-color: #ffc1a2;
+        transition-duration: 200ms;
+    }
+
+    .disabled_button{
+        background-color: #ffa5788e;
+    }
+
+    .disabled_button:hover{
+        
+        cursor: not-allowed;
     }
 
     .button_main_label{

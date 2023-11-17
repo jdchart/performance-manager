@@ -1,5 +1,8 @@
 <script>
     import RandomNetwork from '$lib/components/RandomNetwork.svelte';
+    import { goto } from '$app/navigation';
+
+    import BigButton from '$lib/components/ui/BigButton.svelte';
 
     // Language handling:
     import { lang } from '$lib/scripts/stores.js';
@@ -26,31 +29,22 @@
         </p>
 
         <div id="main_page_buttons">
-            <div class="button_container">
-                <a href="/create-project">
-                <button>
-                    <p class="button_main_label">
-                        {page_vocab.top_nav.nav_create_project[current_language]}
-                    </p>
-                    <p class="button_lower_label">
-                        {page_vocab.top_nav.nav_create_project_desc[current_language]}
-                    </p>
-                </button>
-                </a>
-            </div>
-    
-            <div class="button_container">
-                <a href="/edit-project">
-                <button>
-                    <p class="button_main_label">
-                        {page_vocab.top_nav.nav_edit_project[current_language]}
-                    </p>
-                    <p class="button_lower_label">
-                        {page_vocab.top_nav.nav_edit_project_desc[current_language]}
-                    </p>
-                </button>
-                </a>
-            </div>
+            
+            <BigButton
+                top_label = {page_vocab.top_nav.nav_create_project[current_language]}
+                bottom_label = {page_vocab.top_nav.nav_create_project_desc[current_language]}
+                func = {() => goto('/create-project')}
+                centre = {true}
+                enabled = {true}
+            />
+
+            <BigButton
+                top_label = {page_vocab.top_nav.nav_edit_project[current_language]}
+                bottom_label = {page_vocab.top_nav.nav_edit_project_desc[current_language]}
+                func = {() => goto('/edit-project')}
+                centre = {true}
+                enabled = {true}
+            />
         </div>  
     </div>
 </div>

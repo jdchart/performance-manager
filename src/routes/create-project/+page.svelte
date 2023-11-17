@@ -6,6 +6,7 @@
     import TextFieldInput from '$lib/components/ui/TextFieldInput.svelte';
     import SelectFieldInput from '$lib/components/ui/SelectFieldInput.svelte';
     import TextFieldLabel from '$lib/components/ui/TextFieldLabel.svelte';
+    import BigButton from '$lib/components/ui/BigButton.svelte';
 
     import * as server_utils from "$lib/scripts/server_utils.js";
     import * as utils from "$lib/scripts/utils.js";
@@ -52,6 +53,7 @@
     
     function handle_folder_input(e){
         can_create = true;
+        can_create = can_create
         file_list = e.detail.file_parse;
 
         project_data["root_folder"] = e.detail.root_directory;
@@ -135,19 +137,14 @@
                 />
             </div>
 
-            {#if can_create}
-                <button class="orange_general_button" on:click={() => create_project()}>
-                    <p class="button_main_label">
-                        {page_vocab.create_project.create_button[current_language]}
-                    </p>
-                </button>
-            {:else}
-                <button class="orange_general_button_diabled" on:click={() => create_project()} disabled>
-                    <p class="button_main_label">
-                        {page_vocab.create_project.create_button[current_language]}
-                    </p>
-                </button>
-            {/if}
+
+            <BigButton
+                top_label = {page_vocab.create_project.create_button[current_language]}
+                bottom_label = {""}
+                func = {() => create_project()}
+                centre = {false}
+                enabled = {can_create}
+            />
         </div>
     </div>
     

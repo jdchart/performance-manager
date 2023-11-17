@@ -148,6 +148,7 @@
                         bottom_label = {""}
                         func = {() => handle_add_record()}
                         centre = {false}
+                        enabled = {true}
                     />
 
                 <!-- If no record type has been selected: -->
