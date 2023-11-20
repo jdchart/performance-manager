@@ -6,10 +6,6 @@
 -->
 
 <script>
-    // TESTING. TODO: Remove these:
-    import ScatterTest from "$lib/components/ui/workspace/network-vis/ScatterTest.svelte";
-    import RecordNetwork from "$lib/components/ui/workspace/network-vis/RecordNetwork.svelte";
-
     // Import dependencies:
     import { onMount } from 'svelte';
     import * as server_utils from "$lib/scripts/server_utils.js";
@@ -23,6 +19,7 @@
     import Button from "$lib/components/ui/functional-ui/Button.svelte";
     import Toggle from "$lib/components/ui/functional-ui/Toggle.svelte";
     import Switch from "$lib/components/ui/functional-ui/Switch.svelte";
+    import RecordNetwork from "$lib/components/ui/workspace/network-vis/RecordNetwork.svelte";
 
     // Binds:
     let add_record_window;
@@ -173,8 +170,7 @@
         </div>
     </div>
 
-    <!-- Testing - will remove these: -->
-    <ScatterTest />
+    <!-- Network visualisation: -->
     <RecordNetwork />
 </div>
 
