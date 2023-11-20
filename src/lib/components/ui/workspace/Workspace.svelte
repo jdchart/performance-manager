@@ -20,7 +20,9 @@
     import FileExplorer from '$lib/components/ui/workspace/file-explorer/FileExplorer.svelte';
     import RecordExplorer from '$lib/components/ui/workspace/record-explorer/RecordExplorer.svelte';
     import AddRecord from '$lib/components/ui/AddRecord.svelte';
-    import GeneralButton from "$lib/components/ui/GeneralButton.svelte";
+    import Button from "$lib/components/ui/functional-ui/Button.svelte";
+    import Toggle from "$lib/components/ui/functional-ui/Toggle.svelte";
+    import Switch from "$lib/components/ui/functional-ui/Switch.svelte";
 
     // Binds:
     let add_record_window;
@@ -128,22 +130,16 @@
         <div>
             <h3>{language.get_term(["workspace", "files"], $lang)}</h3>
             <div class="section_menu">
-                <!-- Thiss will be a functional ui switch -->
-                <GeneralButton
-                    label = {language.get_term(["workspace", "file_explorer_menu", "reveal_all"], $lang)}
+                <Switch
+                    label_on = {language.get_term(["workspace", "file_explorer_menu", "reveal_all"], $lang)}
+                    label_off = {language.get_term(["workspace", "file_explorer_menu", "hide_all"], $lang)}
                     func = {() => console.log("hello world")}
                 />
-                <GeneralButton
-                    label = {language.get_term(["workspace", "file_explorer_menu", "hide_all"], $lang)}
-                    func = {() => console.log("hello world")}
-                />
-                <!-- Thiss will be a functional ui button -->
-                <GeneralButton
+                <Button
                     label = {language.get_term(["workspace", "file_explorer_menu", "automatic_record_gen"], $lang)}
                     func = {() => console.log("hello world")}
                 />
-                <!-- Thiss will be a functional ui toggle -->
-                <GeneralButton
+                <Toggle
                     label = {language.get_term(["workspace", "file_explorer_menu", "show_only_unconnected"], $lang)}
                     func = {() => console.log("hello world")}
                 />
@@ -158,17 +154,14 @@
         <div>
             <h3>{language.get_term(["workspace", "records"], $lang)}</h3>
             <div class="section_menu">
-                <GeneralButton
-                    label = {language.get_term(["workspace", "record_explorer_menu", "new_record"], $lang)}
+                <Switch
+                    label_on = {language.get_term(["workspace", "file_explorer_menu", "reveal_all"], $lang)}
+                    label_off = {language.get_term(["workspace", "file_explorer_menu", "hide_all"], $lang)}
+                    func = {() => console.log("hello world")}
+                />
+                <Button
+                    label = "+ {language.get_term(["workspace", "record_explorer_menu", "new_record"], $lang)}"
                     func = {() => add_record_window.open()}
-                />
-                <GeneralButton
-                    label = {language.get_term(["workspace", "file_explorer_menu", "reveal_all"], $lang)}
-                    func = {() => console.log("hello world")}
-                />
-                <GeneralButton
-                    label = {language.get_term(["workspace", "file_explorer_menu", "hide_all"], $lang)}
-                    func = {() => console.log("hello world")}
                 />
             </div>
             <RecordExplorer
@@ -198,6 +191,7 @@
     h3{
         padding-bottom: 0.3em;
         font-weight: bold;
+        padding-left: 0.3em;
     }
 
     .file_and_record_explorers_div{
