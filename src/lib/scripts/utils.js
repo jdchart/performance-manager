@@ -5,11 +5,15 @@ export const make_unique = (toMake) => {
     return JSON.parse(JSON.stringify(toMake));
 };
 
-export const createProjectFolderPath = (project_name, root = "src/lib/data/projects/") => {
+export const create_project_folder_path = (project_name, root = "src/lib/data/projects/") => {
+    /* Return the folder of a new project. */
+
     return root + project_name + "_" + String(uuidv4());
 };
 
-export const getDateString = () => {
+export const get_date_string = () => {
+    /* Return the current date time as a string */
+
     var currentdate = new Date(); 
     return String(currentdate.getDate()) + "_"
                 + String((currentdate.getMonth()+1))  + "_" 
@@ -19,8 +23,10 @@ export const getDateString = () => {
                 + String(currentdate.getSeconds());
 }
 
-export const get_folder = (pathIn) => {
-    let path_split = pathIn.split("/");
+export const get_folder = (path_in) => {
+    /* Get the last folder in a folder path string */
+
+    let path_split = path_in.split("/");
     return path_split[path_split.length - 1];
 };
 

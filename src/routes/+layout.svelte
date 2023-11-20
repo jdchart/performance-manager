@@ -1,26 +1,27 @@
 <script>
+	// Import style sheets:
 	import './reset.css';
 	import './theme.css';
 
+	// Import components:
     import TopNav from '$lib/components/ui/top-nav/TopNav.svelte';
 	import Footer from '$lib/components/ui/Footer.svelte';
 
 	// Language handling:
+    import * as language from "$lib/scripts/language.js";
     import { lang } from '$lib/scripts/stores.js';
-    let current_language;
-	lang.subscribe(value => {
-		current_language = value;
-	});
-    import page_vocab from '$lib/data/vocab/general.json';
 </script>
 
 <svelte:head>
-    <title>{page_vocab.top_nav.site_title[current_language]}</title> 
+    <title>{language.get_term(["top_nav", "site_title"], $lang)}</title> 
 </svelte:head>
 
 <div id="global_container">
     <TopNav />
-    <slot />
+    
+	<!-- Content goes here: -->
+	<slot />
+	
 	<Footer />
 </div>
 

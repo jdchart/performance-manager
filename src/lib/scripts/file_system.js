@@ -5,6 +5,7 @@ https://developer.mozilla.org/en-US/docs/Web/API/FileSystemDirectoryHandle
 https://developer.mozilla.org/en-US/docs/Web/API/FileSystemFileHandle
 */
 
+// Import dependencies
 import file_ignores from '$lib/data/file_ignores.json';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -32,7 +33,7 @@ export const get_files = async () => {
         ret.push(file_handle);
     };
     for(const i in ret){
-        let path = await returnPathDirectories(directory_handler, ret[i])
+        let path = await return_path_directories(directory_handler, ret[i])
         path.unshift(directory_handler.name);
         ret[i].relative_path = path;
     };
@@ -70,6 +71,7 @@ export const file_list_parse = async (file_list) => {
 };
 
 function add_keys_nested_dict(d, keys, val){
+    /* Helper function for file_list_parse() */
     let i = 0;
     for(let key of keys){
         if(Object.keys(d).includes(key) == false){
@@ -85,6 +87,7 @@ function add_keys_nested_dict(d, keys, val){
 };
 
 function concat_path_array(path_array){
+    /* Take an array of folders and concatenate them into a folder path string. */
     let ret = "";
     for(let item of path_array){
         ret = ret + item + "/";
@@ -108,11 +111,11 @@ async function* get_files_recursively(entry){
     };
 };
 
-async function returnPathDirectories(directoryHandle, handle) {
+async function return_path_directories(directory_handle, handle) {
     /*Get the relative path of a file within a directory*/
 
     let ret = [];
-    const relativePaths = await directoryHandle.resolve(handle);
+    const relativePaths = await directory_handle.resolve(handle);
     for (const name of relativePaths) {
         // log each entry
         ret.push(name);

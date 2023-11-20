@@ -1,4 +1,5 @@
 <script>
+    // Import components:
     import Workspace from '$lib/components/ui/workspace/Workspace.svelte';
 </script>
 

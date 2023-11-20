@@ -1,46 +1,44 @@
 <script>
-    import RandomNetwork from '$lib/components/RandomNetwork.svelte';
+    // Import dependencies:
     import { goto } from '$app/navigation';
-
+    
+    // Import components
+    import RandomNetwork from '$lib/components/RandomNetwork.svelte';
     import BigButton from '$lib/components/ui/BigButton.svelte';
 
     // Language handling:
+    import * as language from "$lib/scripts/language.js";
     import { lang } from '$lib/scripts/stores.js';
-    let current_language;
-	lang.subscribe(value => {
-		current_language = value;
-	});
-    import page_vocab from '$lib/data/vocab/general.json';
 </script>
 
-<!-- <div class="network_container">
-    <RandomNetwork />
-</div> -->
-
 <div class="content_container">
-    
-
+    <!-- Display network image behind content: -->
+    <div class="network_container">
+        <RandomNetwork />
+    </div>
     <div id="top_section">
+        
+        <!-- Main title slide: -->
         <p id="short_desc">
-            {page_vocab.top_nav.site_title[current_language]}
+            {language.get_term(["top_nav", "site_title"], $lang)}
         </p>
         <p id="long_desc">
-            {page_vocab.top_nav.site_description[current_language]}
+            {language.get_term(["top_nav", "site_description"], $lang)}
         </p>
 
+        <!-- Main nav buttons: -->
         <div id="main_page_buttons">
-            
             <BigButton
-                top_label = {page_vocab.top_nav.nav_create_project[current_language]}
-                bottom_label = {page_vocab.top_nav.nav_create_project_desc[current_language]}
+                top_label = {language.get_term(["top_nav", "nav_create_project"], $lang)}
+                bottom_label = {language.get_term(["top_nav", "nav_create_project_desc"], $lang)}
                 func = {() => goto('/create-project')}
                 centre = {true}
                 enabled = {true}
             />
 
             <BigButton
-                top_label = {page_vocab.top_nav.nav_edit_project[current_language]}
-                bottom_label = {page_vocab.top_nav.nav_edit_project_desc[current_language]}
+                top_label = {language.get_term(["top_nav", "nav_edit_project"], $lang)}
+                bottom_label = {language.get_term(["top_nav", "nav_edit_project_desc"], $lang)}
                 func = {() => goto('/edit-project')}
                 centre = {true}
                 enabled = {true}
