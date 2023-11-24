@@ -10,6 +10,7 @@
     import { onMount } from 'svelte';
     import * as server_utils from "$lib/scripts/server_utils.js";
     import * as utils from "$lib/scripts/utils.js";
+    import * as project_data_handler from "$lib/scripts/project_data.js";
 
     // Import components:
     import TopMenu from '$lib/components/ui/workspace/TopMenu.svelte';
@@ -28,19 +29,21 @@
     // Internal variables:
     let selected_file;
     let selected_record;
-    let file_list = [];
     let record_list = {"records" : {}};
-    let ontology_data = {"classes" : []}
-    let current_freeze = 0;
-    let freeze_list = [];
-
+    let ontology_data = {"classes" : []};
 
     // Language and current project handling:
     import * as language from "$lib/scripts/language.js";
     import { lang } from '$lib/scripts/stores.js';
 
     // Subscribe to current project store:
-    import { current_project } from '$lib/scripts/stores.js';
+    import { 
+        current_project, 
+        current_file_list, 
+        current_record_list, 
+        current_ontology_data 
+    } from '$lib/scripts/project_data.js';
+
     let current_proj;
 	current_project.subscribe(value => {current_proj = value;});
 
@@ -60,24 +63,7 @@
     async function load_project(path){
         /* Load an existing project at most recent freeze. */
 
-        // Get project metadata:
-        let project_metadata_load = await server_utils.read_json(path + "/metadata.json");
-        project_metadata = utils.make_unique(project_metadata_load);
-
-        // Find the most recent freeze:
-        freeze_list = await server_utils.get_dirs(path + "/freezes", false);
-        current_freeze = freeze_list.length - 1;
-        
-        // Get the freeze's file and record lists:
-        let file_list_load = await server_utils.read_json(freeze_list[current_freeze].path + "/file_list.json")
-        file_list = utils.make_unique(file_list_load);
-        let record_list_load = await server_utils.read_json(freeze_list[current_freeze].path + "/record_list.json")
-        record_list = utils.make_unique(record_list_load);
-
-        // Load the project's ontology data:
-        let ontology_path = "src/lib/data/ontologies/" + project_metadata["ontology"] + "/ontology.json";
-        let ontology_data_load = await server_utils.read_json(ontology_path);
-        ontology_data = utils.make_unique(ontology_data_load);
+        project_data_handler.load_project(path);
     };
 
     function handle_add_record_trigger(e){
@@ -104,8 +90,8 @@
 <AddRecord
     bind:this = {add_record_window}
     on:add_record_trigger={(e) => handle_add_record_trigger(e)}
-    record_list = {record_list}
-    ontology_data = {ontology_data}
+    record_list = {$current_record_list}
+    ontology_data = {$current_ontology_data}
 />
 
 <div class="workspace_container">
@@ -117,7 +103,7 @@
     <!-- Top menu: -->
     <div>
         <TopMenu 
-            record_data = {record_list}
+            record_data = {$current_record_list}
         />
     </div>
     
@@ -142,7 +128,7 @@
                 />
             </div>
             <FileExplorer
-                file_list = {file_list.hierarchy}
+                file_list = {$current_file_list.hierarchy}
                 selected_file = {selected_file}
             />
         </div>

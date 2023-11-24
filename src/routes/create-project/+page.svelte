@@ -8,6 +8,7 @@
     import { goto } from '$app/navigation';
     import * as server_utils from "$lib/scripts/server_utils.js";
     import * as utils from "$lib/scripts/utils.js";
+    import * as project_data_handler from "$lib/scripts/project_data.js";
 
     // Import components:
     import FolderSelect from '$lib/components/ui/FolderSelect.svelte';
@@ -25,19 +26,12 @@
     import * as language from "$lib/scripts/language.js";
     import { lang } from '$lib/scripts/stores.js';
 
-    // Subscribe to current project:
-    import { current_project } from '$lib/scripts/stores.js';
-    let current_proj;
-	current_project.subscribe(value => {current_proj = value;});
-
     // Initialize empty project data:
     import project_data_load from '$lib/data/templates/empty_project.json';
     let project_data = utils.make_unique(project_data_load);
     project_data["project_name"] = language.get_term(["create_project", "field_project_name", "default"], $lang);
     project_data["root_folder"] = language.get_term(["create_project", "field_root_folder", "default"], $lang);
-    import record_list_load from '$lib/data/templates/empty_record_list.json';
-    let record_list = utils.make_unique(record_list_load);
-
+    
     onMount(async () => {
         // Populate the ontology list on mount:
         update_ontology_list(); // TODO: Make this change on language change trigger.
@@ -82,28 +76,8 @@
         /* Create a new project with the given data and redirect to the workspace. */
         
         if(can_create){
-            // Get project directories:
-            project_data["project_path"] = utils.create_project_folder_path(project_data["project_name"]);
-            let freeze_path = project_data["project_path"] + "/freezes/" + utils.get_date_string();
-            
-            // Create directories and data files:
-            await server_utils.createDir(project_data["project_path"]);
-            await server_utils.createDir(project_data["project_path"] + "/freezes");
-            await server_utils.writeFile(project_data["project_path"] + "/metadata.json", JSON.stringify(project_data));
-            await server_utils.createDir(freeze_path);
-            await server_utils.writeFile(freeze_path + "/file_list.json", JSON.stringify(file_list));
-
-            // Create an empty record list from ontology data and write the record list file:
-            let ontology_content = await server_utils.read_json("src/lib/data/ontologies/" + project_data.ontology + "/ontology.json")
-            record_list = utils.make_unique(record_list_load);
-            for(let class_entry of ontology_content["classes"]){
-                record_list["records"][class_entry["unique_id"]] = {"records" : [], "expanded" : true}
-            };
-            await server_utils.writeFile(freeze_path + "/record_list.json", JSON.stringify(record_list));
-
-            // Set the global current project store:
-            current_proj = project_data["project_path"];
-            current_project.set(current_proj);
+            // Create the project on the server:
+            project_data_handler.create_new_project(project_data, file_list);
             
             // Redirect to workspace page:
             goto('/edit-project');

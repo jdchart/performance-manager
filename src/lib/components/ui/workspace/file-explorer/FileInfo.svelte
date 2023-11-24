@@ -13,6 +13,8 @@
     // Language handling:
     import * as language from "$lib/scripts/language.js";
     import { lang } from '$lib/scripts/stores.js';
+
+    import { lang } from '$lib/scripts/project_data.js';
 </script>
 
 <div class="file_info_container">
