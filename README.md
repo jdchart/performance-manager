@@ -13,7 +13,7 @@ Created by Jacob Hart, this is a solution for busy technicians who are asked to 
 
 ## Usage
 
-_Coming soon - with pictures!_
+_Coming soon - with pictures and gifs! :)_
 
 ## Setup
 
@@ -49,9 +49,22 @@ You can then head to Chrome and access the app at [http://localhost:5173/](http:
 
 ### Priority
 
-- [ ]
+- [ ] Add selected file to record button functionality
+- [ ] Programatic record/file assignment by ontology
+- [ ] File explorer filtering + search
+- [ ] Hide all/show all
+- [ ] Record removal
+- [ ] Record relations
+- [ ] Date field formating
+- [ ] String list formating
+- [ ] Save project
+- [ ] Freezes
+- [ ] Project loading
+- [ ] Network visualisation
 
 ### If possible
 
 - [ ] Tauri app
 - [ ] Refactor record list and file list system (this would require a lot of work...)
+- [ ] Heurist and Nakala upload
+- [ ] Ontology maker
