@@ -5,6 +5,10 @@
 <script>
     // Import dependencies:
     import * as utils from "$lib/scripts/utils.js";
+    import { createEventDispatcher } from 'svelte';
+
+    // Create event dispatcher:
+    const dispatch = createEventDispatcher();
 
     // Import components
     import File from '$lib/components/ui/workspace/file-explorer/File.svelte';
@@ -13,6 +17,12 @@
     // Expose variables
     export let file_list = {};
     export let selected_file;
+    export let record_data = {};
+    export let ontology_data;
+
+    export const trigger_update = () => {
+        selected_file = selected_file;
+    }
 
     function select_file(e){
         /* Select a single file */
@@ -28,6 +38,9 @@
         
         // Trigger component update:
         file_list = file_list;
+
+        /// this fucks everything....
+        //dispatch("update_selected_file", {selected_file_id: e.detail.selected.id})
     };
 </script>
 
@@ -37,6 +50,8 @@
         <File
             file_list = {file_list}
             on:select_file = {(e) => select_file(e)}
+            ontology_data = {ontology_data}
+            record_list = {record_data}
         />
     </ul>
     
@@ -44,6 +59,7 @@
     <div class="file_info_wrapper">
         <FileInfo
             selected_file = {selected_file}
+            record_data = {record_data}
         />
     </div>
 </div>

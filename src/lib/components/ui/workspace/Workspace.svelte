@@ -24,6 +24,7 @@
     // Binds:
     let add_record_window;
     let record_explorer_bind;
+    let file_explorer_bind;
 
     // Internal variables:
     let selected_file;
@@ -97,7 +98,34 @@
 
         // Send record select message to the record explorer:
         record_explorer_bind.select_record({"detail" : {"record_data" : e.detail.record_data, "record_unique_id" : e.detail.record_data.unique_id}});
+
+        // Update file list to link to associated record:
+        let associated_file_id = utils.get_attribute_value(e.detail.record_data["attributes"], "Associated file")
+        if(associated_file_id != ""){
+            utils.modify_file(file_list, associated_file_id, "associated_record", e.detail.record_data["record_unique_id"]);
+
+            // TODO Remove from other records !!!!!!!!!!!
+
+        };
+        file_list = file_list;
+        file_explorer_bind.trigger_update();
     };
+
+    function handle_update_associated_record(e){
+        // Update file list to link to associated record:
+        let associated_file_id = utils.get_attribute_value(e.detail.record_data["attributes"], "Associated file")
+        if(associated_file_id != ""){
+            utils.modify_file(file_list, associated_file_id, "associated_record", e.detail.record_data["record_unique_id"]);
+        };
+        file_list = file_list;
+        file_explorer_bind.trigger_update();
+    }
+
+    function handle_update_selected_file(e){
+        console.log("upadting to", e.detail.selected_file_id)
+        selected_file = e.detail.selected_file_id;
+        selected_file = selected_file;
+    }
 </script>
 
 <!-- A popup window for adding a new record to the record list: -->
@@ -106,6 +134,7 @@
     on:add_record_trigger={(e) => handle_add_record_trigger(e)}
     record_list = {record_list}
     ontology_data = {ontology_data}
+    file_list = {file_list}
 />
 
 <div class="workspace_container">
@@ -142,8 +171,12 @@
                 />
             </div>
             <FileExplorer
-                file_list = {file_list.hierarchy}
+                bind:this = {file_explorer_bind}
+                bind:file_list = {file_list.hierarchy}
                 selected_file = {selected_file}
+                record_data = {record_list}
+                ontology_data = {ontology_data}
+                on:update_selected_file = {(e) => handle_update_selected_file(e)}
             />
         </div>
         
@@ -166,6 +199,9 @@
                 bind:record_list = {record_list}
                 ontology_data = {ontology_data}
                 selected_record = {selected_record}
+                file_list = {file_list}
+                on:update_associated_record = {(e) => handle_update_associated_record(e)}
+                selected_file_id = {selected_file}
             />
         </div>
     </div>

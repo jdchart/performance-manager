@@ -6,6 +6,10 @@
 <script>
     // Import dependencies:
     import * as utils from "$lib/scripts/utils.js";
+    import { createEventDispatcher } from 'svelte';
+
+    // Create event dispatcher:
+    const dispatch = createEventDispatcher();
 
     // Import components:
     import RecordPreview from '$lib/components/ui/workspace/record-explorer/RecordPreview.svelte';
@@ -17,6 +21,8 @@
     export let record_list = {"records":{}};
     export let ontology_data = {"classes" : []};
     export let selected_record;
+    export let file_list;
+    export let selected_file_id;
     
     // Selected record id for RecordEdit:
     let selected_record_id;
@@ -93,6 +99,10 @@
         };
         return all_empty;
     };
+
+    function handle_update_associated_record(e){
+        dispatch('update_associated_record', {record_data : e.detail.record_data});
+    };
 </script>
 
 <div class="record_explorer_container">
@@ -145,6 +155,9 @@
         <RecordEdit
             bind:record_data = {record_list}
             selected_record_id = {selected_record_id}
+            file_list = {file_list}
+            on:update_associated_record = {(e) => handle_update_associated_record(e)}
+            selected_file_id = {selected_file_id}
         />
     </div>
 </div>

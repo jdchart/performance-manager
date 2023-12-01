@@ -15,10 +15,12 @@
     import RecordColor from '$lib/components/ui/workspace/record-explorer/RecordColor.svelte';
     import TextFieldInput from "$lib/components/ui/TextFieldInput.svelte";
     import BigButton from "$lib/components/ui/BigButton.svelte";
-    
+    import SelectFieldInput from "$lib/components/ui/SelectFieldInput.svelte";
+
     // Expose variables:
     export let record_list = {"records":{}};
     export let ontology_data = {"classes" : []};
+    export let file_list;
 
     // Create event dispatcher:
     const dispatch = createEventDispatcher();
@@ -76,7 +78,25 @@
         
         // Add a "value" field to each attribute
         for(let attr of append_data["attributes"]){attr["value"] = "";};
-        
+
+        // Add an associated file field to attributes:
+        append_data["attributes"].push({
+            "name" : {
+                "en" : "Associated file",
+                "fr" : "Fichier associé"
+            },
+            "type" : "file",
+            "short_description" : {
+                "en" : "The UUID of a file associated witht the record.",
+                "fr" : "L'identifiant unique du fichier associé au record."
+            },
+            "long_description" : {
+                "en" : "The UUID of a file associated witht the record.",
+                "fr" : "L'identifiant unique du fichier associé au record."
+            },
+            "value" : ""
+        });
+
         // Attribute a unique ID to the record and set it to selected:
         append_data["record_unique_id"] = String(uuidv4())
         append_data["selected"] = true;
@@ -91,6 +111,17 @@
         dispatch("add_record_trigger", {record_data : append_data, class_type : current_class_type});
         window_instance.close_window();
     };
+
+    function populate_file_list_select(){
+        let ret = [];
+        for(let file of file_list["flat"]){
+            ret.push({
+                "label" : file.path,
+                "value" : file.id
+            });
+        };
+        return ret;
+    }
 </script>
 
 <!-- Enclose within a CloseableWindow component: -->
@@ -134,11 +165,20 @@
                         
                         <!-- Edit each attribute field: -->
                         <div>
-                            <TextFieldInput
-                                label = {attr.name[$lang]}
-                                bind:value = {attr.value}
-                            />
-                            <p class="add_record_attribute_short_desc">{attr.long_description[$lang]}</p>
+                            {#if attr.type == "string" || attr.type == "date" || attr.type == "list_string"}
+                                <TextFieldInput
+                                    label = {attr.name[$lang]}
+                                    bind:value = {attr.value}
+                                />
+                                <p class="add_record_attribute_short_desc">{attr.long_description[$lang]}</p>
+                            {:else if attr.type == "file"}
+                                <SelectFieldInput
+                                    label = {attr.name[$lang]}
+                                    bind:value = {attr.value}
+                                    options = {populate_file_list_select()}
+                                    func = {() => {}}
+                                />
+                            {/if}
                         </div>
                     {/each}
 

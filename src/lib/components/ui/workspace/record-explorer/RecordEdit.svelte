@@ -5,17 +5,39 @@
 -->
 
 <script>
+    // Import dependencie:
+    import { createEventDispatcher } from 'svelte';
+
+    // Create event dispatcher:
+    const dispatch = createEventDispatcher();
+
     // Import components:
     import TextFieldInput from "$lib/components/ui/TextFieldInput.svelte";
     import GeneralButton from "$lib/components/ui/GeneralButton.svelte";
+    import SelectFieldInput from "$lib/components/ui/SelectFieldInput.svelte";
 
     // Expose variables:
     export let record_data = {};
     export let selected_record_id = "";
+    export let file_list;
+    export let selected_file_id;
 
     // Language handling:
     import * as language from "$lib/scripts/language.js";
     import { lang } from '$lib/scripts/stores.js';
+
+    function dispatch_update(){
+        dispatch('update_associated_record', {record_data : get_record_from_id(record_data, selected_record_id)});
+    };
+
+    function handle_associate_to_selected_file(){
+        console.log(selected_file_id)
+        let rec_data = get_record_from_id(record_data, selected_record_id);
+
+        rec_data["associated_file"] = selected_file_id;
+        console.log(rec_data)
+        dispatch('update_associated_record', {record_data : rec_data});
+    };
 
     function get_record_from_id(data, id){
         // Return record data from record list with id.
@@ -27,6 +49,17 @@
             };
         };
     };
+
+    function populate_file_list_select(){
+        let ret = [];
+        for(let file of file_list["flat"]){
+            ret.push({
+                "label" : file.path,
+                "value" : file.id
+            });
+        };
+        return ret;
+    }
 </script>
 
 <div class="record_edit_container">
@@ -45,7 +78,7 @@
                 />
                 <GeneralButton
                     label = {language.get_term(["record_explorer", "associate_to_file"], $lang)}
-                    func = {() => console.log("hello world")}
+                    func = {() => handle_associate_to_selected_file()}
                 />
                 <GeneralButton
                     label = {language.get_term(["record_explorer", "add_relation"], $lang)}
@@ -57,11 +90,20 @@
         <!-- Record fields for editing: -->
         {#each get_record_from_id(record_data, selected_record_id).attributes as attr}
             <div class="field_sep">
-                <TextFieldInput
-                    label = {attr.name[$lang]}
-                    bind:value = {attr.value}
-                />
-                <p class="add_record_attribute_short_desc">{attr.long_description[$lang]}</p>
+                {#if attr.type == "string" || attr.type == "date" || attr.type == "list_string"}
+                    <TextFieldInput
+                        label = {attr.name[$lang]}
+                        bind:value = {attr.value}
+                    />
+                    <p class="add_record_attribute_short_desc">{attr.long_description[$lang]}</p>
+                {:else if attr.type == "file"}
+                    <SelectFieldInput
+                        label = {attr.name[$lang]}
+                        bind:value = {attr.value}
+                        options = {populate_file_list_select()}
+                        func = {() => dispatch_update()}
+                    />
+                {/if}
             </div>
         {/each}
     <!-- If no record is selected: -->

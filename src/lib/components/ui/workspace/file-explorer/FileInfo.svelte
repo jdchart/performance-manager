@@ -9,10 +9,35 @@
 
     // Expose variables
     export let selected_file = {};
+    export let record_data = {};
 
     // Language handling:
     import * as language from "$lib/scripts/language.js";
     import { lang } from '$lib/scripts/stores.js';
+
+    function get_record_from_id(data, id){
+        // Return record data from record list with id.
+        for(let record_type of Object.keys(data["records"])){
+            for(let record of data["records"][record_type]["records"]){
+                if(record["record_unique_id"] === id){
+                    return record;
+                };
+            };
+        };
+    };
+
+    function get_record_name(record_id){
+        let rec_data = get_record_from_id(record_data, record_id)
+        if(typeof rec_data === "undefined"){
+            return ""
+        }else{
+            if(rec_data["attributes"][0]["value"] == ""){
+                return record_id;
+            }else{
+                return rec_data["attributes"][0]["value"];
+            }
+        };  
+    };
 </script>
 
 <div class="file_info_container">
@@ -53,6 +78,12 @@
             <TextFieldLabel
                 label = {language.get_term(["file_explorer", "last_modified"], $lang)}
                 value = {new Date(selected_file.last_modified)}
+            />
+        </div>
+        <div>
+            <TextFieldLabel
+                label = {"Associated record:"}
+                value = {get_record_name(selected_file.associated_record)}
             />
         </div>
     {/if}

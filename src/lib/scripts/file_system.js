@@ -59,7 +59,8 @@ export const file_list_parse = async (file_list) => {
                     "path_array" : file.relative_path,
                     "extension" : ext,
                     "id" : id,
-                    "selected" : false
+                    "selected" : false,
+                    "associated_record" : ""
                 };
                 ret["flat"].push(entry);
                 add_keys_nested_dict(ret["hierarchy"], file.relative_path, entry)

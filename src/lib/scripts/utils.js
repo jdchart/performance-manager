@@ -11,6 +11,49 @@ export const create_project_folder_path = (project_name, root = "src/lib/data/pr
     return root + project_name + "_" + String(uuidv4());
 };
 
+export const get_attribute_value = (attribute_arr, attribute_name_en) => {
+    for(let i = 0; i < attribute_arr.length; i++){
+        if (attribute_arr[i]["name"]["en"] == attribute_name_en){
+            return attribute_arr[i]["value"];
+        }
+    };
+};
+
+export const modify_file = (file_list, file_id, field_key, new_val, remove_others = true) => {
+    /* Update both flat and hierarchical representations of a file. */
+    for(let file of file_list["flat"]){
+        if(remove_others == true){
+            if(file[field_key] == new_val){
+                file[field_key] = "";
+            }
+        }
+        if(file["id"] == file_id){
+            file[field_key] = new_val;
+        };
+    };
+    modify_file_recursive(file_list["hierarchy"], file_id, field_key, new_val);
+};
+
+function modify_file_recursive(file_list, file_id, field_key, new_val, remove_others = true){
+    /* Function for updating a field of the hierarchical representation of a file. */
+    for(let key of Object.keys(file_list)){
+        let next_key_list = Object.keys(file_list[key]);
+        if(next_key_list.includes("files")){
+            modify_file_recursive(file_list[key]["files"], file_id, field_key, new_val);
+        }
+        else{
+            if(remove_others == true){
+                if(file_list[key][field_key] == new_val){
+                    file_list[key][field_key] = "";
+                }
+            }
+            if(file_list[key]["id"] == file_id){
+                file_list[key][field_key] = new_val
+            };
+        };
+    };
+};
+
 export const get_date_string = () => {
     /* Return the current date time as a string */
 
